@@ -1,0 +1,70 @@
+<div class="header-main">
+<nav class="navbar navbar-expand-lg navbar-light header">
+  <div class="container-fluid">
+    <div class="logo">
+      <img
+        class="header-image"
+        src="assets/img/Stryker_Corporation_logo.svg.png"
+      />
+      <h3 class="title2">Service Portal</h3>
+    </div>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-toggle="collapse"
+      data-target="#navbarColor03"
+      aria-controls="navbarColor03"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+      (click)="isCollapsed = !isCollapsed"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div
+      class="collapse navbar-collapse"
+      id="navbarColor03"
+      [ngbCollapse]="isCollapsed"
+    >
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0"></ul>
+      <div class="form-group has-search">
+        <span class="fa fa-search form-control-feedback"></span>
+        <input type="text" class="form-control" placeholder="search" />
+      </div>
+      <div>
+        <ul class="d-flex">
+          <li class="notification">
+            <mat-icon matBadge="10" matBadgeSize="small"
+              >notifications_none</mat-icon
+            >
+          </li>
+          <li>
+            <img
+              class="rounded-circle z-depth-2 profile-img"
+              alt="50x50"
+              src="assets/img/manprofile.jpg"
+              data-holder-rendered="true"
+            />
+          </li>
+          <li>
+            <p class="user-font">Stryker</p>
+            <p class="admin-font">
+              Admin<mat-icon [matMenuTriggerFor]="menu"
+                >arrow_drop_down</mat-icon
+              >
+            </p>
+            <mat-menu #menu="matMenu">
+              <button mat-menu-item>
+                <mat-icon>exit_to_app</mat-icon>Sign Out
+              </button>
+            </mat-menu>
+          </li>
+          <li class="settings">
+            <mat-icon>settings</mat-icon>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</nav>
+</div>

@@ -1,0 +1,266 @@
+/////////////////////////////////////////////////////////////CSS for missing tab///////////////////////////////////////////////////////////
+.missingOuterCard {
+  background-color: #ffffff;
+  border: none !important;
+  border-radius: 0% !important;
+}
+// .verifiedListBgCard{
+//   background-color:#0b5dea !important;
+// }
+#searchBtnVerList {
+  margin-top: -3%;
+  margin-left: -15%;
+  width: 122% !important;
+}
+.srchIconVerList {
+  margin-left: 97%;
+  margin-top: -26%;
+}
+@media ( max-width:500px) {
+  #searchBtnVerList {
+    margin-top: -3%;
+    margin-left: -2%;
+    width: 100% !important;
+  }
+  .srchIconVerList {
+    margin-left: 87%;
+    margin-top: -28%;
+  }
+}
+.verifiedCountMissingList {
+  border-color: #21d59b;
+
+  // margin-top: 20px;
+  // margin-left: 1% !important;
+  color: #21d59b;
+  background-color: #21d59b3b;
+  // width: 125px;
+  // height: 21px;
+  border-radius: 5px;
+  font-size: 10px;
+  white-space: normal;
+
+
+}
+.missingPageTitle{
+  text-align: left;
+font: normal normal medium 16px/25px Poppins;
+letter-spacing: 0px;
+color: #134469;
+opacity: 1;
+}
+.missingCount{
+  width: 16px;
+height: 16px;
+background: var(--unnamed-color-e11545) 0% 0% no-repeat padding-box;
+background: #E11545 0% 0% no-repeat padding-box;
+opacity: 1;
+}
+.buttonList{
+  // margin-top: -5%;
+}
+.requestBtn {
+  // margin-top: 10%;
+  margin-left: 2%;
+
+  // width: 9rem;
+  height: 2rem;
+  border-radius: 5px;
+  font-size: x-small;
+  display: inline-block;
+
+}
+
+
+.invoiceBtn{
+  height: 2rem;
+  border-radius: 5px;
+  font-size: x-small;
+}
+.writeOffBtn{
+  // margin-top: 10%;
+  // margin-left: 20% !important;
+  // margin-right: -10% !important;
+  // width: 5rem;
+  height: 2rem;
+  border-radius: 5px;
+  font-size: x-small;
+  display: inline-block;
+
+}
+@media ( max-width:360px) {
+  .verifiedCountMissingList {
+    border-color: #21d59b;
+
+    // margin-top: 20px;
+    margin-left: -5% !important;
+    color: #21d59b;
+    background-color: #21d59b3b;
+    // width: 125px;
+    // height: 21px;
+    border-radius: 5px;
+    font-size: 10px;
+    white-space: normal;
+
+
+  }
+  .buttonList{
+    // margin-top: -5%;
+  }
+  .requestBtn {
+    // margin-top: 10%;
+    margin-left: 1%;
+
+    // width: 9rem;
+    height: 2rem;
+    border-radius: 5px;
+    font-size: x-small;
+    display: inline-block;
+
+  }
+
+
+  .invoiceBtn{
+    // margin-top: -1%;
+    // margin-left: 30% !important;
+    // margin-right: -44%;
+    // width: 5rem;
+    height: 2rem;
+    border-radius: 5px;
+    font-size: x-small;
+
+
+
+  }
+  .writeOffBtn{
+    // margin-top: 10%;
+    // margin-left: 20% !important;
+    // margin-right: -10% !important;
+    // width: 5rem;
+    height: 2rem;
+    border-radius: 5px;
+    font-size: x-small;
+    display: inline-block;
+
+  }
+
+}
+.missingListTopCard {
+  margin-top: 20px;
+  width: 100%;
+  height: 41px;
+  /* background: var(--unnamed-color-21d59b) 0% 0% no-repeat padding-box; */
+  background-color: #f7237825 !important ;
+  border-radius: 0%;
+  display: inline-block;
+}
+#verifideListSingleCardMD {
+  width: 100%;
+  height: 52vh;
+  border-radius: 0%;
+  background-color: #f4f7fc !important;
+  border: none;
+  overflow-y: scroll;
+
+  scrollbar-width: thin;
+  font-size: small;
+  font-weight: 500;
+}
+
+#verifyListSubCardMD {
+  width: 90%;
+  height: 30%;
+  margin-left: 3% !important;
+  border-radius: 0%;
+  margin-top: -2% !important;
+  box-shadow: none;
+}
+.iconTriangle {
+  margin-left: 80% !important;
+  margin-top: -3% !important;
+}
+
+
+
+.mat-18 {
+  color: #0d142a;
+  border: none;
+border-radius: 0%;
+  opacity: 0.4;
+  font-size: 20px;
+}
+.more-options {
+  background-color: #ffffff;
+  padding: 0;
+  margin: 0;
+  height: 10px;
+  width: fit-content;
+  border: none;
+  position: absolute;
+  margin-left: -2.3%;
+}
+
+.menuRef {
+  height: 1000px;
+}
+
+button.mat-menu-item {
+  height: 40px;
+}
+.alertIcon{
+  margin-right: -1%;
+
+}
+
+.powerToolTitle{
+  text-align: left;
+font: normal normal 600 0.60em/1em Poppins;
+
+color: #4a6172;
+// font-size:x-small;
+
+}
+.missingDetailsTitle{
+  margin-top: -1%;
+}
+.deviceCodeMissingList{
+  color: #F72378;;
+
+}
+.printerIcon2{
+  margin-left: -2%;
+}
+// .icon-input {
+//   margin-bottom: 5px;
+//   // margin-top: -2px;
+//   position: relative;
+//   max-width: 250px;
+//   margin-top: -10px;
+
+//   &__text-field{
+//     margin-left: 38rem;
+//     width: 90%;
+//     height: 25px;
+//     padding: 5px 30px 5px 5px;
+//     border: 1px solid #EEF1F3;
+//     border-radius: 4px;
+
+//   }
+//   &__icon{
+//       color: rgb(149, 147, 147);
+
+//       position: absolute;
+//       top: 50%;
+//       // right: 0.2rem;
+//       margin-left: 50rem;
+//       transform: translateY(-50%);
+//   }
+//   &__text-field:focus + &__icon{
+
+//     color: #FF8400;
+//   }
+//   &__text-field::placeholder {
+//     font: 13px/3 sans-serif;
+
+// }
+// }

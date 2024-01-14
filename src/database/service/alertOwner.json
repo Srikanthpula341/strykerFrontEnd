@@ -1,0 +1,50 @@
+[
+    {
+        
+        "customerType": "Hospital",
+        "customerId":"1",
+        "customerName": "GlobalHospital",
+        "address": "Ponekkara, P.O, Kochi, Kerala ,682041",
+        "phone": "04842851234"
+    },
+    {
+        
+        "customerType": "Hospital",
+        "customerId":"2",
+        "customerName": "New Life Hosipital",
+        "address": "NTP, P.O, Kochi, Kerala, 682040",
+        "phone": "04842851278"
+    },
+    {
+        
+        "customerType": "Dealer",
+        "customerId":"3",
+        "customerName": "Star Dealers",
+        "address": "leelaNagar, near abids, Kochi, Kerala, 682045",
+        "phone": "04842851290"
+    },
+    {
+        
+        "customerType": "Dealer",
+        "customerId":"4",
+        "customerName": "City Dealers",
+        "address": "lcity Park, near RailwaStation, Kochi, Kerala , 682046",
+        "phone": "04842853412"
+    },
+    {
+        
+        "customerType": "Service",
+        "customerId":"5",
+        "customerName": "Mankind Services",
+        "address": "leelaNagar, near abids, Kochi, Kerala,682045",
+        "phone": "04842853434"
+    },
+    {
+        
+        "customerType": "Service",
+        "customerId":"6",
+        "customerName": "City Dealers",
+        "address": "lcity Park, near RailwaStation, Kochi, Kerala 682046",
+        "phone": "04842853456"
+    }
+]

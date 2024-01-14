@@ -1,0 +1,115 @@
+<ng-container>
+  <div class="card card-orderList m-0 mt-3 ">
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item complaint-copmplaint">
+        <p class="order-checklist-head" style="text-align: left; margin-top: 5px">
+          Order list
+          <span style="float: right">
+            <button mat-button #myMenuTrigger="matMenuTrigger"[matMenuTriggerFor]="menuRef" class="btn btn-export">Export / Print</button>
+
+            <mat-menu #menuRef="matMenu">
+              <button mat-menu-item>Save as PDF</button>
+              <button mat-menu-item>Save as PNG</button>
+              <button mat-menu-item>Save as Excel</button>
+            </mat-menu>
+
+          </span>
+        </p>
+      </li>
+
+      <mat-accordion>
+        <mat-expansion-panel hideToggle *ngFor="let item of AllOrdersData; index as i" class="mt-2">
+          <mat-expansion-panel-header class="p-0 m-0">
+            <mat-card class="checklist-expanison-pannel">
+              <mat-panel-title>
+
+                <div class="p-0 m-0 flex-grow-1 " role="button">
+
+
+                  <span class="material-icons material-icons2 m-0 p-0">expand_more
+                  </span>
+                  <span class="p-0 m-0" style="font-size: 14px;">
+
+                    {{ item.name }} ({{ item.tools.length }})
+                  </span>
+                </div>
+                <div class="p-0  me-2" (click)="$event.stopPropagation();">
+                  <select class="form-select" aria-label="Default select">
+                    <option value="1">Assign 1</option>
+                    <option value="2">Assign 2</option>
+                    <option value="3">Assign 3</option>
+                    <option value="4">Assign 4</option>
+                  </select>
+                </div>
+                <div class="p-0  m-0"> <img src="./../../../../../assets/img/dealer/Scanner.svg" /></div>
+              </mat-panel-title>
+
+            </mat-card>
+          </mat-expansion-panel-header>
+
+
+          <ng-template matExpansionPanelContent class="m-0 p-0 d-inline-flex" id="order-list-checking"
+            style="height: 500px;">
+            <ng-container id="group-components">
+              <hr class="hr-line" style="margin-top: 0px" />
+
+              <table mat-table #table [dataSource]="getDataSource(i)" class="p-0" style="margin-top: -20px">
+                <ng-container matColumnDef="orderid">
+                  <th mat-header-cell *matHeaderCellDef>Order Id</th>
+                  <td mat-cell *matCellDef="let row">#{{ row.orderid }}</td>
+                </ng-container>
+                <ng-container matColumnDef="name">
+                  <th mat-header-cell *matHeaderCellDef>Item Name</th>
+                  <td mat-cell *matCellDef="let row">{{ row.name }}</td>
+                </ng-container>
+                <ng-container matColumnDef="qty">
+                  <th mat-header-cell *matHeaderCellDef>Qty</th>
+                  <td mat-cell *matCellDef="let row">{{ row.qty }}</td>
+                </ng-container>
+                <ng-container matColumnDef="size">
+                  <th mat-header-cell *matHeaderCellDef>size</th>
+                  <td mat-cell *matCellDef="let row">{{ row.size }}</td>
+                </ng-container>
+                <ng-container matColumnDef="slno">
+                  <th mat-header-cell *matHeaderCellDef>Serial No</th>
+                  <td mat-cell *matCellDef="let row">
+                    <button class="btn btn-slno">{{ row.slno }}</button>
+                    <img src="./../../../../../../assets/img/dealer/Scanner.svg" class="ms-2" alt="" srcset="" />
+                  </td>
+                </ng-container>
+                <ng-container matColumnDef="status">
+                  <th mat-header-cell *matHeaderCellDef>staus</th>
+                  <td mat-cell *matCellDef="let row" [style.color]="getStatusColor(row.status)">
+                    {{ row.status }}
+                  </td>
+                </ng-container>
+                <ng-container matColumnDef="action">
+                  <th mat-header-cell *matHeaderCellDef>action</th>
+                  <td mat-cell *matCellDef="let row">
+                    <img src="../../../../../../assets/img/common/edit.svg" alt="view" class="me-1" />
+                    <img src="../../../../../../assets/img/common/eye.svg" alt="edit" srcset="" />
+                  </td>
+                </ng-container>
+
+                <tr mat-header-row *matHeaderRowDef="displayeColOrderList; sticky: true"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayeColOrderList"></tr>
+              </table>
+            </ng-container>
+          </ng-template>
+        </mat-expansion-panel>
+      </mat-accordion>
+    </ul>
+  </div>
+</ng-container>
+
+
+<!-- <ng-container *ngIf="AllOrdersData.length>0;else emptyList">
+</ng-container>
+
+<ng-template #emptyList>
+  <span class="hint --line1">Empty shopping list!</span>
+  <span class="hint --line2">
+
+    Start adding new items
+  </span>
+</ng-template> -->

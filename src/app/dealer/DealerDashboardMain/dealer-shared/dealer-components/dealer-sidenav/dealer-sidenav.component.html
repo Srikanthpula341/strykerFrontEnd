@@ -1,0 +1,37 @@
+<mat-drawer-container class="sidebar-container mat-typography" >
+  <mat-drawer
+    class="mat-inner"
+    #drawer
+    mode="side"
+    disableClose="true"
+    opened="true"
+    style="width: 64px;"
+  >
+    <button
+      class="grid-toggle"
+      mat-mini-fab
+      (click)="isExpanded = !isExpanded"
+    ></button>
+
+    <mat-nav-list>
+      <ul class="sidenav-nav">
+        <li class="sidenav-nav-item">
+          <a class="sidenav-nav-link">
+            <i class="sidenav-link-icon" (click)="isExpanded = !isExpanded">
+              <!-- <mat-icon>dashboard</mat-icon> -->
+              <img
+                src="../../../../../assets/img/dashboard.svg"
+                alt="My Happy SVG"
+              />
+            </i>
+            <span class="sidenav-link-text" *ngIf="isExpanded">Dashboard</span>
+          </a>
+        </li>
+      </ul>
+    </mat-nav-list>
+  </mat-drawer>
+  <div class="row">
+    <app-dealer-header></app-dealer-header>
+    <router-outlet></router-outlet>
+  </div>
+</mat-drawer-container>

@@ -1,0 +1,238 @@
+<div class="container-fluid m-0 p-0">
+  <div class="alert-dashboard-content sticky">
+    <p class="dashboard-title">Dashboard</p>
+  </div>
+
+  <ng-container #TopCards>
+    <div class="row justify-content-between">
+      <div class="col-lg-5 col-md-8 col-sm-12 col-12">
+        <mat-card class="routine-card">
+          <section class="card-head-text" style="text-align: left">
+            Routine mantainance
+            <span style="float: right">
+              <button mat-button class="more-options" [matMenuTriggerFor]="menuRef">
+                <mat-icon class="mat-18">more_horiz</mat-icon>
+              </button>
+
+              <mat-menu #menuRef="matMenu">
+                <button mat-menu-item>Save as PDF</button>
+                <button mat-menu-item>Save as PNG</button>
+                <button mat-menu-item>Save as Excel</button>
+              </mat-menu>
+            </span>
+          </section>
+          <div class="row" style="margin-top: 10px">
+            <div class="col-4">
+              <section class="card card1" style="border-bottom: 5px solid red">
+                <span class="texthead">Due Now</span>
+                <span class="textsubhead">6</span>
+              </section>
+            </div>
+            <div class="col-4">
+              <section class="card card2" style="border-bottom: 5px solid #21d59b">
+                <span class="texthead">Due Soon</span>
+                <span class="textsubhead" style="color: #21d59b">23</span>
+              </section>
+            </div>
+            <div class="col-4">
+              <section class="card card3" style="border-bottom: 5px solid #2d8eff">
+                <span class="texthead">Not Due</span>
+                <span class="textsubhead" style="color: #2d8eff">56</span>
+              </section>
+            </div>
+          </div>
+        </mat-card>
+      </div>
+
+      <div class="col-lg-6 col-md-12 col-12">
+        <mat-card class="ticket-card">
+          <div class="d-flex justify-content-between m-0 p-0">
+            <p class="card-head-text">Ticket Stats</p>
+            <div class="d-flex">
+              <select class="form-select select month-dropdown">
+                <option selected>Last month</option>
+                <option value="1">Today</option>
+                <option value="2">6month</option>
+                <option value="3">1 year</option>
+              </select>
+              <img class="download-pdf" src="assets/img/pdf.svg" />
+              <i class="fa fa-filter fa-lg filter" aria-hidden="true" style="margin-right: 20px">
+              </i>
+              <span style="float: right">
+                <button mat-button class="more-options" [matMenuTriggerFor]="menuRef">
+                  <mat-icon class="mat-18">more_horiz</mat-icon>
+                </button>
+                <mat-menu #menuRef="matMenu">
+                  <button mat-menu-item>Save as PDF</button>
+                  <button mat-menu-item>Save as PNG</button>
+                  <button mat-menu-item>Save as Excel</button>
+                </mat-menu>
+              </span>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-xl-3 col-lg-6 col-md-6">
+              <div class="card ticket-status-sub-card">
+                <span class="ticket-status-head">Total Tickets</span>
+                <div class="d-flex justify-content-evenly">
+                  <span class="ticket-status-card-value">590</span>
+                  <span class="ticket-status-card-percentage">+3.4%
+                    <img src="{{ upred }}" alt="" srcset="" class="img" />
+                  </span>
+                </div>
+              </div>
+            </div>
+            <div class="col-xl-3 col-lg-6 col-md-6">
+              <div class="card ticket-status-sub-card">
+                <span class="ticket-status-head">Solved</span>
+                <div class="d-flex justify-content-evenly">
+                  <span class="ticket-status-card-value">90</span>
+                  <span class="ticket-status-card-percentage-rev">+3.4%
+                    <img src="{{ upgreen }}" alt="" srcset="" class="img" />
+                  </span>
+                </div>
+              </div>
+            </div>
+            <div class="col-xl-3 col-lg-6 col-md-6">
+              <div class="card ticket-status-sub-card">
+                <span class="ticket-status-head">Pending</span>
+                <div class="d-flex justify-content-evenly">
+                  <span class="ticket-status-card-value">250</span>
+                  <span class="ticket-status-card-percentage">+3.4%
+                    <img src="{{ upred }}" alt="" srcset="" class="img" />
+                  </span>
+                </div>
+              </div>
+            </div>
+            <div class="col-xl-3 col-lg-6 col-md-6">
+              <div class="card ticket-status-sub-card">
+                <span class="ticket-status-head">Ongoing</span>
+                <div class="d-flex justify-content-evenly">
+                  <span class="ticket-status-card-value">250</span>
+                  <span class="ticket-status-card-percentage">+3.4%
+                    <img src="{{ upred }}" alt="" srcset="" class="img" />
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </mat-card>
+      </div>
+    </div>
+  </ng-container>
+
+  <!--Service Map-->
+  <ng-container #map>
+    <div class="row">
+      <div class="col">
+        <mat-card class="map-card">
+          <div>
+            <p class="card-head-text">
+              Service Map
+              <span style="float: right">
+                <button mat-button class="more-options" [matMenuTriggerFor]="menuRef">
+                  <mat-icon class="mat-18">more_horiz</mat-icon>
+                </button>
+                <mat-menu #menuRef="matMenu">
+                  <button mat-menu-item>Save as PDF</button>
+                  <button mat-menu-item>Save as PNG</button>
+                  <button mat-menu-item>Save as Excel</button>
+                </mat-menu>
+              </span>
+            </p>
+          </div>
+          <mat-card-content>
+            <app-servicemap></app-servicemap>
+          </mat-card-content>
+        </mat-card>
+      </div>
+    </div>
+  </ng-container>
+
+  <!--Consumable Table  && Ticket Status chart-->
+  <section class="row">
+    <div class="col-lg-7">
+      <div class="mat-elevation-z1 p-1 card-table m-4">
+        <div class="headtext">
+          <p class="head" style="text-align: left">
+            Consumables
+            <span style="float: right; margin-top: -5px">
+              <div class="d-flex search_bar">
+                <div class="icon-input">
+                  <input matInput (keyup)="applyFilter($event)" class="icon-input__text-field" type="text" />
+                  <i class="icon-input__icon material-icons">search</i>
+                </div>
+                <img src="./../../../../../assets/img/service/filter (1)@2x.png" width="16px" height="16px"
+                  class="filter-img" />
+                <img src="./../../../../../assets/img/3dots.svg" alt="100x300" class="table-dots" />
+              </div>
+            </span>
+          </p>
+        </div>
+        <table mat-table [dataSource]="dataSource" matSort class="table p-0">
+          <ng-container matColumnDef="devicename">
+            <th mat-header-cell *matHeaderCellDef class="table-header header-table" mat-sort-header="phone">
+              Consumables
+            </th>
+            <td mat-cell *matCellDef="let tools">
+              <div>
+                <p class="table-margin table-device-name">
+                  <b>{{ tools.devicename }}</b>
+                </p>
+                <p class="table-margin table-device-phone m-1">
+                  P.No.: {{ tools.phone.slice(0, 4) }}-{{
+                  tools.phone.slice(4, 7)
+                  }}-{{ tools.phone.slice(7, 10) }}
+                </p>
+              </div>
+            </td>
+          </ng-container>
+          <ng-container matColumnDef="date">
+            <th mat-header-cell *matHeaderCellDef class="table-header" mat-sort-header>
+              As on Date
+            </th>
+            <td mat-cell *matCellDef="let tools" class="table-margin table-data">
+              {{ tools.date }}
+            </td>
+          </ng-container>
+
+          <ng-container matColumnDef="count">
+            <th mat-header-cell *matHeaderCellDef class="table-header" mat-sort-header>
+              Count
+            </th>
+            <td mat-cell *matCellDef="let tools" class="table-margin count table-data">
+              {{ tools.count }}
+            </td>
+          </ng-container>
+
+          <ng-container matColumnDef="action">
+            <th mat-header-cell *matHeaderCellDef class="table-header" mat-sort-header>
+              Action Cycyle
+            </th>
+            <td mat-cell *matCellDef="let tools" class="table-margin table-data">
+              <button class="btn btn-outline-primary btn-order btn-warning" mat-button>
+                {{ tools.action }}
+              </button>
+            </td>
+          </ng-container>
+
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+          <tr class="mat-row" *matNoDataRow>
+            No data found
+            <!-- <td class="mat-cell" colspan="12">No data matching the filter {{$event}}</td> -->
+          </tr>
+        </table>
+
+        <div class="matpaginator">
+          <mat-paginator #paginator [pageSizeOptions]="pageSizes" showFirstLastButtons aria-label="select page of user">
+          </mat-paginator>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-5">
+      <app-ticketstatscard></app-ticketstatscard>
+    </div>
+  </section>
+</div>

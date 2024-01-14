@@ -1,0 +1,18 @@
+
+   <button
+   mat-button
+   class="more-options"
+   [matMenuTriggerFor]="menuRef"
+   style="position: absolute;"
+ >
+   <mat-icon class="mat-18">more_horiz</mat-icon>
+ </button>
+
+ <mat-menu #menuRef="matMenu">
+   <button mat-menu-item>Save as PDF</button>
+   <button mat-menu-item>Save as PNG</button>
+   <button mat-menu-item>Save as Excel</button>
+ </mat-menu>
+<highcharts-chart appHorizontalScroll [Highcharts]="Highcharts" [options]="chartOptions"
+style="min-width: 300px; max-width: 600px; height: 360px; display: block;" class="mat-elevation-z1 m-4" >
+p</highcharts-chart>

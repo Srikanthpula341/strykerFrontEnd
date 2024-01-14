@@ -1,0 +1,339 @@
+<div [ngClass]="collapsed ? 'sidenav-collapsed' : ''">
+  <mat-drawer-container class="alert-container" autosize="true">
+    <div class="d-flex">
+      <button
+        mat-icon-button
+        class="alert-icon-dashboard"
+        aria-label="icon-button with menu icon"
+        *ngIf="collapsed == this.isButtonVisible"
+        (click)="toggleCollapse()"
+      >
+        <div class="d-flex">
+          <mat-icon>menu</mat-icon>
+          <span class="alert-header-name">Alerts(25)</span>
+        </div>
+      </button>
+    </div>
+    <router-outlet></router-outlet>
+    <mat-drawer
+      #drawer
+      class="alert-sidenav"
+      mode="side"
+      opened
+      *ngIf="collapsed"
+    >
+      <button
+        mat-icon-button
+        class="alert-icon"
+        aria-label="icon-button with menu icon"
+        (click)="toggleCollapse()"
+      >
+        <div class="d-flex">
+          <mat-icon>menu</mat-icon>
+          <span class="alert-header-name">Alerts(25)</span>
+        </div>
+      </button>
+      <div class="d-flex search_bar">
+        <div class="icon-input">
+          <input class="icon-input__text-field" type="text" />
+          <i class="icon-input__icon material-icons">search</i>
+        </div>
+        <i
+          class="fa fa-filter fa-2x filter"
+          aria-hidden="true"
+          (click)="showDiv.filterbtn = !showDiv.filterbtn"
+        >
+        </i>
+        <mat-icon class="share">more_horiz</mat-icon>
+      </div>
+      <hr class="divider" />
+      <!------------------------------------------------------------->
+      <mat-tab-group class="mat-tab">
+        <mat-tab label="All">
+          <div class="d-flex justify-content-between" *ngIf="showDiv.filterbtn">
+            <span class="filter-title">Filter</span>
+            <ul class="d-flex">
+              <li>
+                <form class="filter-priority-form">
+                  <input
+                    type="text"
+                    class="filter-priority-input"
+                    placeholder="priority"
+                    [formControl]="control"
+                    [matAutocomplete]="auto"
+                    [(ngModel)]="filteredString"
+                  />
+                  <mat-autocomplete #auto="matAutocomplete">
+                    <mat-option
+                      class="filter-priority-dropdown"
+                      *ngFor="let priority of filteredPriorities | async"
+                      [value]="priority"
+                    >
+                      {{ priority }}
+                    </mat-option>
+                  </mat-autocomplete>
+                </form>
+              </li>
+              <li>
+                <select
+                  class="form-select select device-dropdown"
+                  aria-label="Default select example"
+                >
+                  <option selected>Device</option>
+                  <option value="1">Hospital</option>
+                  <option value="2">Dealer</option>
+                </select>
+              </li>
+              <li>
+                <select
+                  class="form-select select days-dropdown"
+                  aria-label="Default select example"
+                >
+                  <option selected>Last 5 days</option>
+                  <option value="1">Today</option>
+                  <option value="2">6month</option>
+                  <option value="3">1 year</option>
+                </select>
+              </li>
+            </ul>
+          </div>
+          <div *ngFor="let alerts of alert | filter: filteredString">
+            <mat-card class="notification-card">
+              <div class="d-flex justify-content-between">
+                <span class="newalert" *ngIf="alerts.id == 1">{{
+                  alerts.status
+                }}</span>
+                <button
+                  type="button"
+                  class="btn btn-warning btn-sm ticketid "
+                  (click)="
+                    gettingticketData(
+                      alerts.ticketid,
+                      alerts.customerType,
+                      alerts.customerId,
+                      alerts.serialNo
+                    )
+                  "
+                  routerLinkActive="/alertinfo"
+                >
+                  Ticket ID:{{ alerts.ticketid }}
+                </button>
+                <button
+                  type="button"
+                  class="btn btn-outline-info btn-sm services"
+                >
+                  {{ alerts.alertdevice }}
+                </button>
+                <select
+                  class="form-select select p-dropdown highpriority-dropdown"
+                  aria-label="Default select example"
+                >
+                  <option [value]="alerts.id">
+                    {{ alerts.prioritystatus }}
+                  </option>
+                </select>
+              </div>
+              <span
+                class="alertheading"
+                (click)="
+                  gettingticketData(
+                    alerts.ticketid,
+                    alerts.customerType,
+                    alerts.customerId,
+                    alerts.serialNo
+                  )
+                "
+                onclick="location.href='/alertinfo'"
+                >{{ alerts.alertheading }}</span
+              >
+              <br />
+              <span class="alertmessage">{{ alerts.alertmessage }}</span>
+              <br />
+              <div class="d-flex datetime">
+                <mat-icon class="icon-display">update</mat-icon>
+                <span>{{ dateTime | date: "medium" }}</span>
+              </div>
+              <div class="d-flex justify-content-between">
+                <span class="devicename" *ngIf="alerts.hospitalname"
+                  ><i class="fas fa fa-hospital" aria-hidden="true"></i>
+                  {{ alerts.hospitalname }}</span
+                >
+                <span class="devicename" *ngIf="alerts.devicename"
+                  ><img src="../../assets/img/service/machine.svg" />
+                  {{ alerts.devicename }}</span
+                >
+                <span class="dealername" *ngIf="alerts.dealername"
+                  ><img src="../../assets/img/service/people.svg" />
+                  {{ alerts.dealername }}</span
+                >
+                <span class="stock" *ngIf="alerts.stock == '0'"
+                  >Stock:{{ alerts.stock }}</span
+                >
+
+                <select
+                  class="form-select select p-dropdown status-dropdown"
+                  aria-label="Default select example"
+                >
+                  <option>&#xf21e; {{ alerts.orderstatus }}</option>
+                </select>
+                <select
+                  class="form-select select p-dropdown user-dropdown"
+                  aria-label="Default select example"
+                >
+                  <option selected>&#xf234;</option>
+                </select>
+              </div>
+            </mat-card>
+          </div>
+        </mat-tab>
+        <mat-tab label="Replacement">
+          <div class="d-flex justify-content-between" *ngIf="showDiv.filterbtn">
+            <span class="filter-title">Filter</span>
+            <ul class="d-flex">
+              <li>
+                <form class="filter-priority-form">
+                  <input
+                    type="text"
+                    class="filter-priority-input"
+                    placeholder="priority"
+                    [formControl]="control"
+                    [matAutocomplete]="auto"
+                    [(ngModel)]="filteredString"
+                  />
+                  <mat-autocomplete #auto="matAutocomplete">
+                    <mat-option
+                      class="filter-priority-dropdown"
+                      *ngFor="let priority of filteredPriorities | async"
+                      [value]="priority"
+                    >
+                      {{ priority }}
+                    </mat-option>
+                  </mat-autocomplete>
+                </form>
+              </li>
+              <li>
+                <select
+                  class="form-select select device-dropdown"
+                  aria-label="Default select example"
+                >
+                  <option selected>Device</option>
+                  <option value="1">Hospital</option>
+                  <option value="2">Dealer</option>
+                </select>
+              </li>
+              <li>
+                <select
+                  class="form-select select days-dropdown"
+                  aria-label="Default select example"
+                >
+                  <option selected>Last 5 days</option>
+                  <option value="1">Today</option>
+                  <option value="2">6month</option>
+                  <option value="3">1 year</option>
+                </select>
+              </li>
+            </ul>
+          </div>
+        </mat-tab>
+        <mat-tab label="Services">
+          <div class="d-flex justify-content-between" *ngIf="showDiv.filterbtn">
+            <span class="filter-title">Filter</span>
+            <ul class="d-flex">
+              <li>
+                <form class="filter-priority-form">
+                  <input
+                    type="text"
+                    class="filter-priority-input"
+                    placeholder="priority"
+                    [formControl]="control"
+                    [matAutocomplete]="auto"
+                    [(ngModel)]="filteredString"
+                  />
+                  <mat-autocomplete #auto="matAutocomplete">
+                    <mat-option
+                      class="filter-priority-dropdown"
+                      *ngFor="let priority of filteredPriorities | async"
+                      [value]="priority"
+                    >
+                      {{ priority }}
+                    </mat-option>
+                  </mat-autocomplete>
+                </form>
+              </li>
+              <li>
+                <select
+                  class="form-select select device-dropdown"
+                  aria-label="Default select example"
+                >
+                  <option selected>Device</option>
+                  <option value="1">Hospital</option>
+                  <option value="2">Dealer</option>
+                </select>
+              </li>
+              <li>
+                <select
+                  class="form-select select days-dropdown"
+                  aria-label="Default select example"
+                >
+                  <option selected>Last 5 days</option>
+                  <option value="1">Today</option>
+                  <option value="2">6month</option>
+                  <option value="3">1 year</option>
+                </select>
+              </li>
+            </ul>
+          </div>
+        </mat-tab>
+        <mat-tab label="Activity">
+          <div class="d-flex justify-content-between" *ngIf="showDiv.filterbtn">
+            <span class="filter-title">Filter</span>
+            <ul class="d-flex">
+              <li>
+                <form class="filter-priority-form">
+                  <input
+                    type="text"
+                    class="filter-priority-input"
+                    placeholder="priority"
+                    [formControl]="control"
+                    [matAutocomplete]="auto"
+                    [(ngModel)]="filteredString"
+                  />
+                  <mat-autocomplete #auto="matAutocomplete">
+                    <mat-option
+                      class="filter-priority-dropdown"
+                      *ngFor="let priority of filteredPriorities | async"
+                      [value]="priority"
+                    >
+                      {{ priority }}
+                    </mat-option>
+                  </mat-autocomplete>
+                </form>
+              </li>
+              <li>
+                <select
+                  class="form-select select device-dropdown"
+                  aria-label="Default select example"
+                >
+                  <option selected> Device</option>
+                  <option value="1">Hospital</option>
+                  <option value="2">Dealer</option>
+                </select>
+              </li>
+              <li>
+                <select
+                  class="form-select select days-dropdown"
+                  aria-label="Default select example"
+                >
+                  <option selected>Last 5 days</option>
+                  <option value="1">Today</option>
+                  <option value="2">6month</option>
+                  <option value="3">1 year</option>
+                </select>
+              </li>
+            </ul>
+          </div>
+        </mat-tab>
+      </mat-tab-group>
+    </mat-drawer>
+  </mat-drawer-container>
+</div>

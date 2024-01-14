@@ -1,0 +1,196 @@
+<div class="d-flex justify-content-center alert-info-container">
+  <div class="col-12">
+
+
+        <div class="row m-0 p-0 mt-3">
+          <div class="col-xl-6 col-lg-6 col-md-6 col-xl-6 col-xxl-6 col-12"  >
+            <mat-card class="card " id="returnList"  >
+              <span class="Return">Return list</span>
+              <div class="d-flex justify-content-around" >
+                <button type="button" class="btn btn-light itemsRemaining" (click)="remainingItems()">
+                  2 items remaining
+                </button>
+
+                <button
+                  type="button"
+                  class="btn btn-dark missingItemsBtn"
+
+                  (click)="addingMissingList()"
+                >
+                  Marks as missing
+                </button>
+
+                <button type="button" class="btn btn-dark verifyButton" (click)="verifyItems()">
+                  Verify
+                </button>
+                <!-- &nbsp; -->
+                <img
+                  src="../../../../../assets/img/dealer/Group 2184.svg"
+                  class="scanner me-1 mt-2"
+                  alt=""
+                />
+              </div>
+              <br />
+
+              <mat-card class="card mt-0" id="returnListTopCard">
+                <div class="topCardText ">
+                  <img src="assets\img\dealer\icon_arrow.svg" alt="" />
+
+                  <span class="powerToolTitle">
+                    Power Tool Set - PT Package #121</span
+                  >
+                  <div class="square">
+                    <div class="two">2</div>
+                  </div>
+                </div>
+              </mat-card>
+              <mat-card class="card mt-0 ms-0" id="returnToolsListCard">
+                <ng-container *ngFor="let item of ReturnList">
+                  <div>
+                    <input
+                      class="form-check-input returnCheckBox"
+                      type="checkbox"
+                      value=""
+                      id="flexCheckDefault"
+                      (click)="returnListVerification(item.id)"
+                    />
+                    <mat-card class="card  ms-4" id="returnListSubCard">
+                      <div class="cardText">{{ item.id }}</div>
+                      <div class="cardText">
+                        {{ item.deviceName }}
+                        <!-- <span style="float: right;">
+                    <button mat-button class=" more-options more-options-map">
+                      <mat-icon class="mat-18">more_horiz</mat-icon>
+                    </button>
+
+
+                  </span> -->
+                        <span style="float: right; margin-right: 3%">
+                          <button
+                            mat-button
+                            class="more-options"
+                            [matMenuTriggerFor]="menuRef"
+                          >
+                            <mat-icon class="mat-18">more_horiz</mat-icon>
+                          </button>
+
+                          <mat-menu #menuRef="matMenu">
+                            <button mat-menu-item>Save as PDF</button>
+                            <button mat-menu-item>Save as PNG</button>
+                            <button mat-menu-item>Save as Excel</button>
+                          </mat-menu>
+                        </span>
+                      </div>
+
+                      <p class="returnListDeviceCode">{{ item.deviceCode }}</p>
+                    </mat-card>
+                  </div>
+                </ng-container>
+              </mat-card>
+            </mat-card>
+          </div>
+          <div class="col-xl-6 col-lg-6 col-md-6 col-xl-6 col-xxl-6 col-12">
+            <!-- //mt-4 flex ms-4  -->
+            <mat-card class="verifiedList">
+              <!-- <div class="col-xl-12 col-lg-8 col-md-6 col-12"> -->
+                <div class="d-flex justify-content-between">
+                <span class="VerifiedTitle" style="  white-space: nowrap;"> Verified list</span>
+
+                <!-- <form class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                  <input
+                    type="search"
+                    id="searchBtn"
+                    class="form-control form-control-sm has-search"
+                    placeholder="Search By Order id or Serial Id"
+                    style="width: 68%"
+                  />
+                  <img
+                    src="../../../../../assets/img/dealer/search.svg"
+                    alt=""
+                    class="searchIcon"
+                  />
+                </form> -->
+                <div class="icon-input">
+                  <input class="icon-input__text-field" type="text" placeholder="Search By Order id or Serial Id">
+                  <i class="icon-input__icon material-icons">search</i>
+                </div>
+              </div>
+
+              <!-- </div> -->
+              <div class="d-flex">
+                <div class="flex-grow-1 mt-1">
+                  <button type="button" class="btn btn-light verifiedCount">
+                    189 items verified
+                  </button>
+
+                </div>
+
+                <div class="d-flex justify-content-sm-around mt-1">
+
+
+                  <button type="button" class="btn btn-dark damageBtn">
+                    Marks as Damage
+                  </button>
+                  <img
+                    src="../../../../../assets/img/dealer/svg16.svg"
+                    alt=""
+                    class="printerIcon"
+
+                  />
+                </div>
+              </div>
+
+              <mat-card class="verifiedListTopCard">
+                <div class="tiitleVerifiedList">
+                  <img src="assets\img\dealer\icon_arrow.svg" alt="" /> &nbsp;
+
+                  <span class="powerToolTitle"
+                    >Power Tool Set - PT Package #121</span
+                  >
+                </div>
+
+              </mat-card>
+              <mat-card class="card mt-0 ms-0" id="verifiedToolsListCard">
+                <ng-container *ngFor="let item of VerifiedList">
+                  <div>
+                    <input
+                      class="form-check-input returnCheckBox"
+                      type="checkbox"
+                      value=""
+                      id="flexCheckDefault"
+                      (click)="returnListVerification(item.id)"
+                    />
+                    <mat-card class="card  ms-4" id="verifyListSubCard">
+                      <div class="cardText">{{ item.id }}</div>
+                      <div class="cardText">
+                        {{ item.deviceName }}
+                        <!-- <img src="assets\img\dealer\icons8-more.svg" class="icon3dots" style="float: right"/> -->
+                        <span style="float: right; margin-right: 3%">
+                          <button
+                            mat-button
+                            class="more-options"
+                            [matMenuTriggerFor]="menuRef"
+                          >
+                            <mat-icon class="mat-18">more_horiz</mat-icon>
+                          </button>
+
+                          <mat-menu #menuRef="matMenu">
+                            <button mat-menu-item>Save as PDF</button>
+                            <button mat-menu-item>Save as PNG</button>
+                            <button mat-menu-item>Save as Excel</button>
+                          </mat-menu>
+                        </span>
+                      </div>
+
+                      <p class="verifiedListDeviceCode">{{ item.deviceCode }}</p>
+                    </mat-card>
+                  </div>
+                </ng-container>
+              </mat-card>
+            </mat-card>
+          </div>
+        </div>
+
+
+  </div>
+</div>

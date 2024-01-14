@@ -1,0 +1,209 @@
+@import url("https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css");
+@import url(./../../../../../@fonts/dealerfonts.scss);
+
+
+.hrline-checklist {
+  margin-top: -0.625em !important;
+}
+
+.order-checklist-head {
+  font-size: 1em;
+  font-weight: 500;
+  color: #1a232e;
+  margin-left: 0.25em;
+}
+
+.card {
+  border-color: #284b7508 !important;
+  box-sizing: border-box;
+  margin-top: 1.25em;
+  margin-left: 0;
+  border: 0.08em solid #eef1f3;
+  border-radius: 0.25em;
+}
+
+.card-checklist {
+
+  @media (max-width: 800px) {
+    min-height: min-content;
+    max-height: calc(200%  + 50px) !important;
+    background-color: #ffa600;
+  }
+  @media (min-width:801px) {
+height: 80vh;
+  }
+
+}
+
+.checklist-expanison-pannel {
+  width: 100%;
+  border-radius: 0;
+}
+.mat-expansion-panel-header {
+  border-color: #0d142a;
+  border-width: 0.25em;
+}
+
+.mat-expansion-panel {
+  border: none;
+  box-shadow: none;
+  margin-left: 2%;
+  margin-right: 2%;
+  border: 1px solid #d1d9e0 !important;
+  border-radius: 0 0 0 0 !important;
+  border-bottom: 1px;
+  background-color: white;
+  box-shadow: none !important;
+}
+.mat-expansion-panel-header-title .material-icons {
+  margin-left: -2% !important ;
+  transform: rotate(270deg) !important;
+  font-size: 1.5em;
+}
+.mat-expanded .mat-expansion-panel-header-title .material-icons {
+  transform: rotate(0deg) !important;
+  color: #3b4859;
+}
+.material-icons2{
+margin-left: -10% !important;
+}
+.mat-expansion-panel-header {
+  flex-direction: row-reverse;
+  padding-left: 1.62em;
+  font-size: 1em !important;
+}
+.hr-line{
+
+  margin-left: -15%;
+  margin-right: -10%;
+}
+::ng-deep .mat-expansion-panel-body {
+  height: 12.5em !important;
+ overflow-y: scroll;
+ scrollbar-width: thin;
+ padding: 0 0 0 0;
+
+}
+
+.card-checklist-main {
+  border: 1px solid #d1d9e0 !important;
+  border-radius: 0;
+  height: 41px;
+  color: #414141;
+  background-color: #ffa600;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.card-checklist-sub {
+  border: 1px solid #d1d9e0 !important;
+  border-radius: 0;
+  margin-left: -2%;
+  margin-right: -2%;
+  height: 56px;
+  margin-bottom: -10px;
+
+  .tool-name {
+    font-size: 12px;
+    font-weight: 500;
+    color: #414141;
+
+    .tool-status {
+      color: green;
+      font-size: 12px;
+      margin-left: 5px;
+    }
+  }
+
+  .tool-serial {
+    font-size: 10px;
+    color: #616161;
+    word-spacing: 29;
+  }
+}
+
+.check-icons {
+  font-size: 50px;
+  color: #ffa600;
+  cursor: pointer;
+}
+/// expanion oannel
+/// ///Progress Table
+
+.card-progress {
+  height: 380px;
+  margin-right: 20px;
+}
+.table-progress {
+  margin-left: -8%;
+  width: 150%;
+  color: #3b4859;
+  .table-progress-height {
+    height: 60px;
+    margin-left: -180px;
+    width: max-content !important;
+    a:not([href]):not([class]),
+    a:not([href]):not([class]):hover {
+      color: inherit;
+      text-decoration: none;
+      margin-left: 8%;
+      width: max-content;
+      font-size: 14px;
+    }
+    .progress-level {
+      margin-left: 20px;
+    }
+  }
+
+  .status {
+    height: 20px;
+    margin-left: 14.5%;
+    font-size: 0.625em;
+    color: #818181;
+  }
+}
+
+.vl {
+  border-left: 1px solid #707070;
+  height: 80%;
+  margin-left: 30%;
+
+  margin-top: 20px;
+}
+
+
+///more options
+///
+//icon
+.mat-18 {
+  color: #0d142a;
+
+  opacity: 0.4;
+  font-size: 20px;
+}
+
+.more-options {
+  background-color: #ffffff;
+  padding: 0;
+  margin: 0;
+  height: 10px;
+  width: fit-content;
+  border: none;
+  position: absolute;
+  margin-left: -2.3%;
+}
+
+.menuRef {
+  height: 1000px;
+}//
+
+button.mat-menu-item {
+  height: 40px;
+}
+
+
+
+
+
+
+

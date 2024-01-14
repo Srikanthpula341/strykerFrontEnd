@@ -1,0 +1,290 @@
+<div class="row m-0 p-0 mt-3">
+  <div class="col-md-6 col-lg-7 col-xl-7 col-12 m-0 p-0">
+    <section class="card card-return">
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item">
+          <p class="return-checklist-head" style="text-align: left; margin-top: 5px">
+            Return Items 100
+            <span style="float: right">
+              <button mat-button class="more-options" [matMenuTriggerFor]="menuRef">
+                <mat-icon class="mat-18">more_horiz</mat-icon>
+              </button>
+
+              <mat-menu #menuRef="matMenu">
+                <button mat-menu-item>Save as PDF</button>
+                <button mat-menu-item>Save as PNG</button>
+                <button mat-menu-item>Save as Excel</button>
+              </mat-menu>
+            </span>
+          </p>
+        </li>
+        <form #myForm="ngForm">
+          <mat-accordion>
+            <mat-expansion-panel *ngFor="let item of ToolsData" hideToggle>
+              <mat-expansion-panel-header>
+                <mat-panel-title>
+                  <span class="material-icons m-0 p-0">expand_more</span>
+                  <div class="p-1 m-0" style="font-size: 14px; margin-left: -50%">
+                    {{ item.name }} ({{ item.tools.length }})
+                  </div>
+                  <div class="ms-auto me-0 p-2 bd-highlight">
+                    <img src="./../../../../../assets/img/dealer/Scanner.svg" />
+                  </div>
+                </mat-panel-title>
+              </mat-expansion-panel-header>
+              <ng-template matExpansionPanelContent>
+                <ng-container >
+                  <mat-selection-list #items ngModel (selectionChange)="handleSelection(myForm.value)"
+                    [name]="item.name" class="h-100" [multiple]="true">
+                    <mat-list-option *ngFor="let i of item.tools" [value]="i" >
+
+                      <div class="card card-checklist-sub m-0">
+                        <div class="d-flex flex-row border-1">
+                          <div class="p-0 ms-2 mt-2 border-1" (click)="checkTools(item.id, i.code, i.name)"
+                            (click)="checkData(item.id, i.code)">
+
+                            <img src="./../../../../../assets/img/dealer/check-not-circle.svg" class="check-icons" />
+                            <img src="./../../../../../assets/img/dealer/checked-circle.svg" alt="20x20"
+                              class="check-icons" />
+                          </div>
+                          <div class="pt-1">
+                            <div class="d-flex flex-column m-1 mt-2">
+                              <div class="tool-name">
+                                {{ i.name }}<span class="tool-status">&#11044;</span>
+                              </div>
+                              <div class="tool-serial">Sl.No.:{{ i.slno }}</div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </mat-list-option>
+                  </mat-selection-list>
+                </ng-container>
+              </ng-template>
+
+            </mat-expansion-panel>
+
+          </mat-accordion>
+        </form>
+        <mat-accordion>
+          <mat-expansion-panel hideToggle *ngFor="let item of ToolsData" class="mt-2">
+            <mat-expansion-panel-header class="p-1 m-0">
+              <mat-card class="checklist-expanison-pannel">
+                <mat-panel-title>
+                  <span class="material-icons m-0 p-0">expand_more</span>
+                  <div class="p-1 m-0" style="font-size: 14px; margin-left: -50%">
+                    {{ item.name }} ({{ item.tools.length }})
+                  </div>
+                  <div class="ms-auto me-0 p-2 bd-highlight">
+                    <img src="./../../../../../assets/img/dealer/Scanner.svg" />
+                  </div>
+                </mat-panel-title>
+              </mat-card>
+            </mat-expansion-panel-header>
+            <ng-template matExpansionPanelContent class="m-0 p-0">
+              <ng-container id="group-components" *ngFor="let i of item.tools">
+                <div class="card card-checklist-sub mt-2 mb-2">
+                  <div class="d-flex flex-row">
+                    <div class="p-0 ms-2 mt-2" (click)="checkTools(item.id, i.code, i.name)"
+                      (click)="checkData(item.id, i.code)">
+
+                      <img src="./../../../../../assets/img/dealer/check-not-circle.svg" class="check-icons" />
+                      <img src="./../../../../../assets/img/dealer/checked-circle.svg" alt="20x20"
+                        class="check-icons" />
+                    </div>
+                    <div class="pt-1">
+                      <div class="d-flex flex-column m-1 mt-2">
+                        <div class="tool-name">
+                          {{ i.name }}<span class="tool-status">&#11044;</span>
+                        </div>
+                        <div class="tool-serial">Sl.No.:{{ i.slno }}</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </ng-container>
+            </ng-template>
+          </mat-expansion-panel>
+        </mat-accordion>
+      </ul>
+    </section>
+
+    <section class="card card-return mt-4">
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item">
+          <p class="return-checklist-head" style="text-align: left; margin-top: 5px">
+            Order Items 100
+            <span style="float: right">
+              <button mat-button class="more-options" [matMenuTriggerFor]="menuRef">
+                <mat-icon class="mat-18">more_horiz</mat-icon>
+              </button>
+
+              <mat-menu #menuRef="matMenu">
+                <button mat-menu-item>Save as PDF</button>
+                <button mat-menu-item>Save as PNG</button>
+                <button mat-menu-item>Save as Excel</button>
+              </mat-menu>
+            </span>
+          </p>
+        </li>
+
+        <mat-accordion>
+          <mat-expansion-panel hideToggle *ngFor="let item of ToolsData" class="mt-2">
+            <mat-expansion-panel-header class="p-1 m-0">
+              <mat-card class="checklist-expanison-pannel">
+                <mat-panel-title>
+                  <span class="material-icons m-0 p-0">expand_more</span>
+                  <div class="p-1 m-0" style="font-size: 14px; margin-left: -50%">
+                    {{ item.name }} ({{ item.tools.length }})
+                  </div>
+                  <div class="ms-auto me-0 p-2 bd-highlight">
+                    <img src="./../../../../../assets/img/dealer/Scanner.svg" />
+                  </div>
+                </mat-panel-title>
+              </mat-card>
+            </mat-expansion-panel-header>
+            <ng-template matExpansionPanelContent class="m-0 p-0">
+              <ng-container id="group-components" *ngFor="let i of item.tools">
+                <div class="card card-checklist-sub mt-2 mb-2">
+                  <div class="d-flex flex-row">
+                    <div class="p-0 ms-2 mt-2" (click)="checkTools(item.id, i.code, i.name)">
+                      <img src="./../../../../../assets/img/dealer/check-not-circle.svg" class="check-icons" />
+                      <!-- <img src="./../../../../../assets/img/dealer/checked-circle.svg" alt="20x20"
+                        class="check-icons" /> -->
+                    </div>
+                    <div class="pt-1">
+                      <div class="d-flex flex-column m-1 mt-2">
+                        <div class="tool-name">
+                          {{ i.name }}<span class="tool-status">&#11044;</span>
+                        </div>
+                        <div class="tool-serial">Sl.No.:{{ i.slno }}</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </ng-container>
+            </ng-template>
+          </mat-expansion-panel>
+        </mat-accordion>
+      </ul>
+    </section>
+  </div>
+  <div class="col-md-6 col-lg-5 col-xl-5 col-12 mini-return-upadtes">
+    <div class="row">
+      <div class="col-12 card" style="width: 98%">
+        <div class="card-progress">
+          <p class="return-checklist-head" style="text-align: left; margin-top: 14px">
+            Return Updates
+            <span style="float: right">
+              <button mat-button class="more-options" [matMenuTriggerFor]="menuRef">
+                <mat-icon class="mat-18">more_horiz</mat-icon>
+              </button>
+
+              <mat-menu #menuRef="matMenu">
+                <button mat-menu-item>Save as PDF</button>
+                <button mat-menu-item>Save as PNG</button>
+                <button mat-menu-item>Save as Excel</button>
+              </mat-menu>
+            </span>
+          </p>
+          <div class="card-progress-model mt-4 mb-4" style="margin-left: 5%">
+            <div class="row m-0 p-0">
+              <div class="col-1">
+                <div class="return-vl"></div>
+              </div>
+              <div class="col-10 m-0 p-0">
+                <table class="return-table-progress" style="margin-top: 5px">
+                  <tbody>
+
+                    <!-- <tr class="table-progress-height"  >
+                      <img [src]="returnTracker.Completed != undefined ? proIcon : circleIcon" class="img" />
+                      <a> Completed</a>
+                      <p class="status">{{returnTracker.Completed}}</p>
+                    </tr> -->
+                    <tr class="table-progress-height"  >
+                      <img [src]="returnTracker.Completed == '' ? proIcon : circleIcon" class="img" />
+                      <a> Completed</a>
+                      <p class="status">{{returnTracker.Completed}}</p>
+                    </tr>
+                    <tr class="table-progress-height"  >
+                      <img [src]="returnTracker.AwaitingForMissing == '' ? proIcon : circleIcon" class="img" />
+                      <a> Awaiting For Missing</a>
+                      <p class="status">{{returnTracker.AwaitingForMissing}}</p>
+                    </tr>
+                    <tr class="table-progress-height"  >
+                      <img [src]="returnTracker.VerificationOnProcess !='' ? proIcon : circleIcon" class="img" />
+                      <a> Verification On Process</a>
+                      <p class="status">{{returnTracker.VerificationOnProcess}}</p>
+                    </tr>
+                    <tr class="table-progress-height"  >
+                      <img [src]="returnTracker.returnCollected != '' ? proIcon : circleIcon" class="img" />
+                      <a> Return Collected</a>
+                      <p class="status">{{returnTracker.returnCollected}}</p>
+                    </tr>
+
+                    <tr class="table-progress-height"  >
+                      <img [src]="returnTracker.AgentAssigmened != '' ? proIcon : circleIcon" class="img" />
+                      <a> Agent Assigmened</a>
+                      <p class="status">{{returnTracker.AgentAssigmened}}</p>
+                    </tr>
+                    <tr class="table-progress-height"  >
+                      <img [src]="returnTracker.ReturnAccepeted != '' ? proIcon : circleIcon" class="img" />
+                      <a>  Return Accepeted</a>
+                      <p class="status">{{returnTracker.ReturnAccepeted}}1</p>
+                    </tr>
+
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- <div class="card" style="width: 97%">
+        <p class="head" style="text-align: left; margin-top: 10px">
+          Near By agent
+          <span style="float: right"> </span>
+        </p>
+
+        <div>
+          <p>
+            Makesh Goel
+            <span style="float: right"> </span>
+          </p>
+          <p style="margin-top: -10px">
+            <img src="./../../../../../assets/img/service/location@2x.jpg" width="20px" />
+            Sheopur, &#11044; 2.5Km away
+          </p>
+        </div>
+      </div> -->
+
+      <!-- <mat-card class="col-12 card" style="height: 300px">
+  <p class="head" style="text-align: left; margin-top: 5px">
+    Service Agent details
+    <span style="float: right">
+      <mat-icon style="margin-right: 0px">more_horiz</mat-icon>
+    </span>
+  </p>
+  <table class="table">
+    <tbody>
+      <tr>
+        <td style="width: 20%">Agent Name</td>
+        <td class="gen-data">Makesh Goel</td>
+      </tr>
+      <tr>
+        <td style="width: 30%">Distance</td>
+        <td class="gen-data">2.5Km</td>
+      </tr>
+
+      <tr>
+        <td style="width: 20%">Adress</td>
+        <td class="gen-data">
+          Ponekkara,<br />P. O, Kochi, <br />Kerala 682041
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</mat-card> -->
+    </div>
+  </div>
+</div>

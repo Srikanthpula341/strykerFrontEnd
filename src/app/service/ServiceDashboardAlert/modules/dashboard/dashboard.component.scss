@@ -1,0 +1,376 @@
+.container-fluid {
+  margin-left: 10px !important;
+  margin-top: 20px !important;
+  overflow-x: hidden !important;
+  width: 99%;
+}
+
+.dashboard-title {
+  margin-left: 20px;
+  font-size: 24px;
+  color: #0d142a;
+  font-weight: 600;
+  padding-bottom: 15px;
+  font-family: "Poppins", sans-serif;
+}
+
+.routine-card {
+  margin-left: 20px;
+  height: 144px;
+  width: 99.6%;
+  margin-bottom: 20px;
+  border: none;
+  box-shadow: #050607 !important;
+}
+
+.consumable-card {
+  margin-left: 20px;
+  background-color: #ffffff;
+}
+
+.map-card {
+  margin-left: 20px;
+  width: 96.6%;
+}
+
+.card1,
+.card2,
+.card3 {
+  height: 81px;
+  margin-top: 5%;
+}
+.mat-card {
+  //border: none !important;
+  border: #f85e57;
+  border-color: #f85e57;
+  box-shadow: 0.25px;
+  border-width: 10px;
+  box-sizing: border-box;
+}
+.card-head-text {
+  font-size: 16px;
+  font-weight: 500;
+  letter-spacing: 0.15px !important;
+  text-align: left;
+  margin-top: -5px !important;
+}
+
+.texthead {
+  font-size: 14px;
+  text-align: center;
+  margin-top: 6px;
+  margin-bottom: 5px;
+  font-weight: 600;
+}
+
+.textsubhead {
+  text-align: center;
+  color: red;
+  margin-top: 10%;
+  font-weight: 600;
+  font-size: 36px;
+}
+
+.downloadbtn {
+  float: right;
+  margin-top: 10px;
+  color: white;
+  font-size: 12px;
+}
+
+//////////////////////////////////////////////////////////////////////////////////
+.ticket-card {
+  // margin-left: -8%;
+  // margin-right: 10px;
+  background: #ffffff 0% 0% no-repeat padding-box;
+  border: 1px solid #eef1f3;
+  border-radius: 4px;
+  opacity: 1;
+  height: 144px;
+  margin-left: -14%;
+  margin-right: 10px;
+}
+
+//////////////////////////////////////////////////////////////////////////////////
+
+.month-dropdown {
+  border: none;
+  height: 30px;
+  border: 0;
+  box-shadow: none;
+  font-size: small;
+  width: 123px;
+  margin-right: 5px;
+  margin-top: -6px;
+  //background-color: #ebe4e4;
+}
+
+.download-pdf {
+  width: 14px;
+  margin-bottom: 15px;
+  margin-right: 10px;
+}
+
+.filter {
+  margin-top: 1.5px;
+  margin-right: 5px;
+}
+
+.ticket-status-sub-card {
+  height: 81px;
+  padding: 4px;
+  width: 110%;
+}
+
+.ticket-status-head {
+  font-size: 14px;
+  text-align: center;
+  margin-bottom: 20%;
+  margin-left: 2px;
+  font-weight: 500;
+  text-align: justify;
+  color: #0d142a;
+}
+
+.ticket-status-card-value {
+  font-size: large;
+  font-weight: bold;
+  color: #050607;
+  font-size: 22px;
+  margin-left: 6px;
+  text-align: right;
+  float: right;
+}
+
+.ticket-status-card-percentage {
+  font-size: 12px;
+  font-weight: medium;
+  color: red;
+}
+
+.ticket-status-card-percentage-rev {
+  font-size: 12px;
+  font-weight: medium;
+  color: #21d59b;
+}
+.input {
+  margin-top: 0px;
+  height: 20px;
+  position: relative;
+  display: inline-block;
+  border-color: black;
+  border-width: 1px;
+  background-color: #e4e4e4;
+}
+
+//
+
+.Table-container {
+  height: 400px;
+  overflow: auto;
+}
+
+table {
+  width: 100%;
+  margin-top: -40px;
+}
+
+.material-icons {
+  size: 12px;
+}
+
+.fa-2x {
+  width: 10px !important;
+  font-size: 1.4em !important;
+  margin-top: -50% !important;
+}
+
+.table-margin {
+  text-align: left;
+  font: normal normal medium 10px/29px Poppins;
+  letter-spacing: 0px;
+  color: #0d142a;
+  text-transform: capitalize;
+  opacity: 1;
+}
+
+th.mat-header-cell:first-of-type,
+td.mat-cell:first-of-type,
+td.mat-footer-cell:first-of-type {
+  padding-left: 15px;
+
+  td.mat-cell:first-of-type {
+    padding-left: 10px;
+  }
+}
+
+.head {
+  font-size: 16px;
+  font-weight: 500;
+  font-family: "Poppins", sans-serif;
+  margin-top: 10px;
+  margin-left: 15px;
+}
+
+.card-table {
+  width: 100%;
+  height: 365px;
+  background-color: #ffffff;
+  opacity: 1;
+  color: #0d142a;
+
+  .input-box {
+    height: 16px;
+    font-size: 12px;
+    width: 200px;
+    outline: #ffff;
+    border-color: #ffff;
+  }
+
+  .table-header {
+    font: normal normal 600 13px/18px Poppins;
+    text-align: justify;
+    margin-top: 5px;
+    padding-bottom: 2%;
+    padding-top: 1%;
+  }
+
+  .table-device-name {
+    margin-left: 0;
+    text-align: left;
+    font: normal normal medium 12px/29px Poppins;
+    margin-bottom: 8px;
+  }
+
+  .count {
+    color: #f85e57;
+    font: normal normal medium 10px Poppins;
+  }
+
+  .mat-column-Consumables {
+    .table-device-name {
+      width: max-content + 50px;
+    }
+  }
+
+  .mat-column-AsOnDate {
+    width: max-content + 10px;
+    text-align: center !important;
+  }
+
+  .mat-column-Count {
+    width: 15% !important;
+    text-align: center !important;
+  }
+
+  tr.mat-header-row {
+    height: 16px !important;
+    border-bottom: 1px solid;
+  }
+
+  td.mat-cell {
+    padding-top: 1.2%;
+  }
+
+  td.mat-cell,
+  td.mat-footer-cell {
+    border-bottom-width: 0px;
+    border-bottom-style: solid;
+    border-top: 1px solid #cccaca;
+    border-bottom: 1px solid #cccaca;
+  }
+
+  td.mat-footer-cell {
+    border-bottom-width: 0px !important;
+    border-bottom-style: solid;
+  }
+
+  .btn {
+    font: white;
+    color: white;
+    outline: none;
+    border: #ffffff;
+  }
+}
+
+.mat-paginator {
+  width: 100%;
+  margin-top: -16px;
+  min-height: 40px;
+  height: 50px;
+  position: relative;
+}
+
+.icon-input {
+  margin-bottom: 10px;
+  margin-right: 0px;
+  margin-left: 20px;
+  position: relative;
+  max-width: 300px;
+  float: right;
+  border: none;
+  cursor: pointer;
+
+  &__text-field {
+    width: 200px;
+    padding: 5px 30px 5px 5px;
+    border-radius: 4px;
+    border: 0.25px solid #ccc;
+    height: 25px;
+  }
+
+  &__icon {
+    color: rgb(187, 182, 182);
+    position: absolute;
+    margin-top: 13px;
+    margin-left: 3px !important;
+    right: 0.1rem;
+    transform: translateY(-50%);
+  }
+
+  &__text-field:focus + &__icon {
+    color: #b0f479;
+  }
+
+  &__text-field:focus-visible {
+    border: #f85e57 !important;
+    border-color: #0d142a !important;
+  }
+}
+
+.table-dots {
+  font-size: 24px !important;
+  margin-top: -12px;
+  margin-right: 20px;
+}
+
+.filter-img {
+  margin-top: 5px;
+  margin-left: 10px;
+  margin-right: 15px;
+  opacity: 0.5;
+}
+//icon
+.mat-18 {
+  color: #0d142a;
+
+  opacity: 0.4;
+  font-size: 20px;
+}
+.more-options {
+  background-color: #ffffff;
+  padding: 0;
+  margin: 0;
+  height: 10px;
+  width: fit-content;
+  border: none;
+  position: absolute;
+  margin-left: -20px;
+}
+.menuRef {
+  height: 1000px;
+}
+
+button.mat-menu-item {
+  height: 40px;
+}

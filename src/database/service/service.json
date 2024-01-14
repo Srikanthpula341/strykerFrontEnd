@@ -1,0 +1,47 @@
+{
+
+  "tickettable1": [
+    {
+      "phone": "6400123247",
+      "devicetype": "Stryker Dual Trigger Drill",
+      "date": "16-02-2022",
+      "count": "8",
+      "action": " reorder"
+    },
+    {
+      "phone": "6400123456",
+      "devicetype": "Stryker Dual Trigger Drill",
+      "date": "16-02-2022",
+      "count": "8",
+      "action": " reorder"
+    },
+    {
+      "phone": "6400456123",
+      "devicetype": "Stryker Dual Trigger Drill",
+      "date": "16-02-2022",
+      "count": "8",
+      "action": " reorder"
+    },
+    {
+      "phone": "6400123789",
+      "devicetype": "Stryker Dual Trigger Drill",
+      "date": "16-02-2022",
+      "count": "8",
+      "action": " reorder"
+    },
+    {
+      "phone": "6400123789",
+      "devicetype": "Stryker Dual Trigger Drill",
+      "date": "16-02-2022",
+      "count": "8",
+      "action": " reorder"
+    }, {
+      "phone": "6400123789",
+      "devicetype": "Stryker Dual Trigger Drill",
+      "date": "16-02-2022",
+      "count": "8",
+      "action": " reorder"
+    }
+  
+  ]
+}

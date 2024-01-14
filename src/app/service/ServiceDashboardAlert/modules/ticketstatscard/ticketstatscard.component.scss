@@ -1,0 +1,28 @@
+::-webkit-scrollbar {
+    display: none; // hide scrollbar in Chromium
+  }
+  .mat-18{
+    color: #0D142A;
+    opacity: 0.4;
+    font-size: 20px;
+  }
+  .more-options{
+    background-color: #FFFFFF;
+    padding: 0;
+    margin: 0;
+    height: 10px;
+    width: fit-content;
+    border: none;
+    position: absolute;
+   margin-left: 34%;
+   margin-top: 1%;
+   z-index: 3;
+  
+  }
+  .menuRef{
+    height: 1000px;
+  }
+  
+  button.mat-menu-item{
+    height: 40px;
+  }

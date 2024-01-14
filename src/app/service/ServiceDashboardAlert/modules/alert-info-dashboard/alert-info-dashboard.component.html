@@ -1,0 +1,1204 @@
+<div class="d-flex justify-content-center alert-info-container">
+  <div class="col-xl-12">
+    <mat-card class="alert-main-card mat-elevation-1">
+      <!-- <div class="d-flex"> -->
+      <!-- <div class="toggle-alert-card"> -->
+
+      <!-- </div> -->
+      <div>
+        <div class="d-flex justify-content-between">
+          <div>
+            <!-- [class.active]="toggleActive" (click)="toggleRightSidenav()" -->
+            <button class="btn-click" onclick="location.href='/service'">
+              <i
+                class="fa fa-angle-left"
+                style="color: white; font-size: 20px"
+                aria-hidden="true"
+              ></i>
+            </button>
+            <span class="alertheading">{{ ticketdata?.alertheading }}</span>
+          </div>
+          <ul class="d-flex topsection">
+            <li>
+              <span class="newalert" *ngIf="ticketdata?.id == 1">{{
+                ticketdata?.status
+              }}</span>
+            </li>
+            <li>
+              <button
+                type="button"
+                class="btn btn-warning btn-sm ticketid"
+                onclick="location.href='/carddashboard'"
+              >
+                Ticket ID:{{ ticketdata?.ticketid }}
+              </button>
+            </li>
+            <li>
+              <button
+                type="button"
+                class="btn btn-outline-info btn-sm services"
+              >
+                {{ ticketdata?.alertdevice }}
+              </button>
+            </li>
+            <li>
+              <select
+                class="form-select select p-dropdown highpriority-dropdown"
+                aria-label="Default select example"
+              >
+                <option [value]="ticketdata?.id">
+                  {{ ticketdata?.prioritystatus }}
+                </option>
+              </select>
+            </li>
+          </ul>
+        </div>
+        <div class="row">
+          <ul class="d-flex" style="margin-left: 36px">
+            <li>
+              <span>Part No: {{ ticketdata?.partno }}</span>
+            </li>
+            <li>
+              <span>Serial Number: {{ ticketdata?.serialNo }}</span>
+            </li>
+          </ul>
+        </div>
+        <div class="row">
+          <div class="d-flex datetime" style="margin-left: 36px">
+            <mat-icon class="icon-display">update</mat-icon>
+            <span>{{ dateTime | date: "medium" }}</span>
+          </div>
+        </div>
+        <div class="row">
+          <div class="d-flex justify-content-between" style="margin-left: 36px">
+            <span class="devicename" *ngIf="ticketdata?.hospitalname"
+              ><i class="fas fa fa-hospital" aria-hidden="true"></i>
+              {{ ticketdata?.hospitalname }}</span
+            >
+            <span class="devicename" *ngIf="ticketdata?.devicename"
+              ><img src="../../../../../assets/img/service/machine.svg" />
+              {{ ticketdata?.devicename }}</span
+            >
+            <span class="dealername" *ngIf="ticketdata?.dealername"
+              ><img src="../../../../../assets/img/service/people.svg" />
+              {{ ticketdata?.dealername }}</span
+            >
+            <span class="stock" *ngIf="ticketdata?.stock == '0'"
+              >Stock:{{ ticketdata?.stock }}</span
+            >
+            <ul class="d-flex" style="margin-right: 29px">
+              <li>
+                <select
+                  class="form-select select p-dropdown status-dropdown"
+                  aria-label="Default select example"
+                >
+                  <option selected>Pending</option>
+                  <option value="1">Out of stock</option>
+                </select>
+              </li>
+              <li>
+                <select
+                  class="form-select select p-dropdown user-dropdown"
+                  aria-label="Default select example"
+                >
+                  <option selected>&#xf234;</option>
+                </select>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <!-- </div> -->
+    </mat-card>
+
+    <mat-tab-group style="margin-top: -40px; margin-bottom: 10px">
+      <mat-tab label="General info">
+        <mat-card class="card owner-details-card m-3 mat-elevation-1">
+          <mat-card-title>
+            <p class="head" style="text-align: left">
+              Owner details
+              <span style="float: right">
+                <div
+                  class="dropdown"
+                  style="float: right"
+                  (clickOutside)="clickedOutsideOwnerOptions()"
+                >
+                  <img
+                    src="./../../../../../assets/img/3dots.svg"
+                    (click)="moreOptionOwnerOptions()"
+                    style="margin-top: 10px"
+                  />
+                  <div
+                    id="myDropdown"
+                    class="dropdown-content"
+                    *ngIf="OwnerOptions"
+                  >
+                    <option value="pdf">Save as PNG</option>
+                    <option value="pdf">Save as PDF</option>
+                    <option value="pdf">Save as Excel</option>
+                  </div>
+                </div>
+              </span>
+            </p>
+          </mat-card-title>
+
+          <mat-card-content>
+            <div class="customer-info">
+              <table class="table">
+                <tbody>
+                  <tr>
+                    <td style="width: 25%">Customer Type</td>
+                    <td class="gen-data">{{ ownerData.customerType }}</td>
+                  </tr>
+                  <tr>
+                    <td>Customer Name</td>
+                    <td class="gen-data">{{ ownerData.customerName }}</td>
+                  </tr>
+                  <tr>
+                    <td>Ticket Issued By</td>
+                    <td class="gen-data">Nikhil</td>
+                  </tr>
+                  <tr>
+                    <td>Address</td>
+                    <td class="gen-data">
+                      {{ ownerAddress[0] }}, {{ ownerAddress[1] }}
+                      <br />
+                      {{ ownerAddress[2] }} , {{ ownerAddress[3] }}
+                      <br />
+                      {{ ownerAddress[4] }}
+                      <br />
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Phone Number</td>
+                    <td class="gen-data">{{ ownerData.phone }}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </mat-card-content>
+        </mat-card>
+
+        <mat-card class="card m-3 card-register-Table">
+          <p class="head" style="text-align: left">
+            Other Register Assets
+            <span style="float: right; display: flex">
+              <div class="d-flex search_bar">
+                <div class="icon-input" style="margin-right: 10px">
+                  <input
+                    matInput
+                    (keyup)="applyFilter($event)"
+                    class="icon-input__text-field"
+                    type="text"
+                  />
+                  <i class="icon-input__icon material-icons">search</i>
+                </div>
+                <img
+                  src="./../../../../../assets/img/service/filter (1)@2x.png"
+                  width="16px"
+                  height="16px"
+                  class="filter-img"
+                />
+                <div
+                  class="dropdown"
+                  style="float: right"
+                  (clickOutside)="clickedOutsideOtherRegister()"
+                >
+                  <img
+                    src="./../../../../../assets/img/3dots.svg"
+                    (click)="moreOptionOtherRegister()"
+                    style="margin-top: -8px"
+                    width="15px"
+                  />
+                  <div
+                    id="myDropdown"
+                    class="dropdown-content"
+                    *ngIf="OtherRegister"
+                  >
+                    <option value="pdf">Save as PNG</option>
+                    <option value="pdf">Save as PDF</option>
+                    <option value="pdf">Save as Excel</option>
+                  </div>
+                </div>
+              </div>
+            </span>
+          </p>
+
+          <mat-card-content>
+            <mat-table
+              [dataSource]="dataSource"
+              matSort
+              class="table-register-assets"
+            >
+              <ng-container matColumnDef="item">
+                <th
+                  mat-header-cell
+                  *matHeaderCellDef
+                  class="table-header"
+                  mat-sort-header
+                >
+                  Item No
+                </th>
+                <td mat-cell *matCellDef="let tools" class="table-data">
+                  {{ tools.item.slice(0, 4) }}-{{ tools.item.slice(4, 7) }}-{{
+                    tools.item.slice(7, 10)
+                  }}
+                </td>
+              </ng-container>
+              <ng-container matColumnDef="discription">
+                <th
+                  mat-header-cell
+                  *matHeaderCellDef
+                  class="table-header"
+                  mat-sort-header
+                >
+                  description
+                </th>
+                <td mat-cell *matCellDef="let tools" class="table-data">
+                  {{ tools.discription }}
+                </td>
+              </ng-container>
+
+              <ng-container matColumnDef="serial">
+                <th
+                  mat-header-cell
+                  *matHeaderCellDef
+                  class="table-header"
+                  mat-sort-header
+                >
+                  Serial No
+                </th>
+                <td
+                  mat-cell
+                  *matCellDef="let tools"
+                  class="table-margin count table-data"
+                >
+                  {{ tools.serial }}
+                </td>
+              </ng-container>
+
+              <ng-container matColumnDef="warrertytype">
+                <th
+                  mat-header-cell
+                  *matHeaderCellDef
+                  class="table-header"
+                  mat-sort-header
+                >
+                  Warranty Type
+                </th>
+                <td
+                  mat-cell
+                  *matCellDef="let tools"
+                  class="table-margin count table-data"
+                >
+                  {{ tools.warrertytype }}
+                </td>
+              </ng-container>
+
+              <ng-container matColumnDef="warrrentyexpiry">
+                <th
+                  mat-header-cell
+                  *matHeaderCellDef
+                  class="table-header"
+                  mat-sort-header
+                >
+                  warranty Expire
+                </th>
+                <td
+                  mat-cell
+                  *matCellDef="let tools"
+                  class="table-margin count table-data"
+                >
+                  {{ tools.warrrentyexpiry }}
+                </td>
+              </ng-container>
+
+              <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+              <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+              <tr class="mat-row" *matNoDataRow>
+                No data found
+              </tr>
+            </mat-table>
+
+            <div class="matpaginator">
+              <mat-paginator
+                #paginator
+                [pageSizeOptions]="pageSizes"
+                showFirstLastButtons
+                aria-label="select page of user"
+              ></mat-paginator>
+            </div>
+          </mat-card-content>
+        </mat-card>
+      </mat-tab>
+      <mat-tab label="Device Info">
+        <div class="device-info-content">
+          <div class="row row-cols-1 row-cols-md-4 g-4 device-main-tab">
+            <div class="col">
+              <mat-card class="status-card">
+                <div class="d-flex justify-content-end">
+                  <mat-icon class="share">more_horiz</mat-icon>
+                </div>
+                <div class="d-flex justify-content-between">
+                  <img
+                    class="img-svg"
+                    src="../../../../../assets/img/service/act-status.svg"
+                  />
+                  <div class="row">
+                    <span class="devicestatusinfo" style="color: #fb5750">{{
+                      device.activitystatus
+                    }}</span>
+                    <span class="statusinfo-header">Activity Status</span>
+                  </div>
+                </div>
+              </mat-card>
+            </div>
+            <div class="col">
+              <mat-card class="status-card">
+                <div class="d-flex justify-content-end">
+                  <mat-icon class="share">more_horiz</mat-icon>
+                </div>
+                <div class="d-flex justify-content-between">
+                  <img
+                    class="img-svg"
+                    src="../../../../../assets/img/service/alert-clock.svg"
+                  />
+                  <div class="row">
+                    <span class="devicestatusinfo" style="color: #34d4a1">{{
+                      device.estlife
+                    }}</span>
+                    <span class="statusinfo-header">Est.Life Remaining</span>
+                  </div>
+                </div>
+              </mat-card>
+            </div>
+            <div class="col">
+              <mat-card class="status-card">
+                <div class="d-flex justify-content-end">
+                  <mat-icon class="share">more_horiz</mat-icon>
+                </div>
+                <div class="d-flex justify-content-between">
+                  <img
+                    class="img-svg"
+                    src="../../../../../assets/img/service/battery-charge.svg"
+                  />
+                  <div class="row">
+                    <span class="devicestatusinfo" style="color: #2d8eff">{{
+                      device.batterystatus
+                    }}</span>
+                    <span class="statusinfo-header">Battery Status</span>
+                  </div>
+                </div>
+              </mat-card>
+            </div>
+            <div class="col">
+              <mat-card class="status-card">
+                <div class="d-flex justify-content-end">
+                  <mat-icon class="share">more_horiz</mat-icon>
+                </div>
+                <div class="d-flex justify-content-between">
+                  <img
+                    class="img-svg"
+                    src="../../../../../assets/img/service/settings-gear.svg"
+                  />
+                  <div class="row">
+                    <span class="devicestatusinfo" style="color: #ff5400">{{
+                      device.lastservicedate
+                    }}</span>
+                    <span class="statusinfo-header">Last Service Date</span>
+                  </div>
+                </div>
+              </mat-card>
+            </div>
+          </div>
+        </div>
+
+        <div class="row m-0 p-0">
+          <div class="col-7">
+            <div class="card">
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item">
+                  <p class="head" style="text-align: left; margin-top: 5px">
+                    Product Details
+                    <span style="float: right">
+                      <div
+                        class="dropdown"
+                        style="float: right"
+                        (clickOutside)="clickedOutsidecomplaintOptions()"
+                      >
+                        <img
+                          src="./../../../../../assets/img/3dots.svg"
+                          (click)="moreOptioncomplaintOptions()"
+                          style="margin-top: 10px"
+                        />
+                        <div
+                          id="myDropdown"
+                          class="dropdown-content"
+                          *ngIf="complaintOptions"
+                        >
+                          <option value="pdf">Save as PNG</option>
+                          <option value="pdf">Save as PDF</option>
+                          <option value="pdf">Save as Excel</option>
+                        </div>
+                      </div>
+                    </span>
+                  </p>
+                </li>
+                <hr class="m-0 p-0 hrline" />
+                <li class="list-group-item powermodule-tab">
+                  <mat-accordion>
+                    <mat-expansion-panel
+                      [expanded]="step === 0"
+                      (opened)="setStep(0)"
+                      hideToggle
+                      class="powermodule"
+                    >
+                      <mat-expansion-panel-header>
+                        <mat-panel-title
+                          ><i
+                            class="fa fa-caret-down"
+                            aria-hidden="true"
+                            style="margin-right: 5px; color: #7e84a3"
+                          ></i>
+                          Stryker Power Module
+                        </mat-panel-title>
+                        <br />
+                      </mat-expansion-panel-header>
+                      <div class="row">
+                        <div
+                          class="d-flex justify-content-between powermodulelist"
+                        >
+                          <mat-list-item style="color: #7e84a3"
+                            >Serial Number</mat-list-item
+                          >
+                          <mat-list-item>{{ device.serialno }}</mat-list-item>
+                        </div>
+                        <div
+                          class="d-flex justify-content-between powermodulelist"
+                        >
+                          <mat-list-item style="color: #7e84a3"
+                            >Firmware Version</mat-list-item
+                          >
+                          <mat-list-item>{{
+                            device.firmwareversion
+                          }}</mat-list-item>
+                        </div>
+                        <div
+                          class="d-flex justify-content-between powermodulelist"
+                        >
+                          <mat-list-item style="color: #7e84a3"
+                            >Manufacturing Date</mat-list-item
+                          >
+                          <mat-list-item>{{ device.mfd }}</mat-list-item>
+                        </div>
+                        <div
+                          class="d-flex justify-content-between powermodulelist"
+                        >
+                          <mat-list-item style="color: #7e84a3"
+                            >Installation Date</mat-list-item
+                          >
+                          <mat-list-item>{{
+                            device.installationdate
+                          }}</mat-list-item>
+                        </div>
+                        <div
+                          class="d-flex justify-content-between powermodulelist"
+                        >
+                          <mat-list-item style="color: #7e84a3"
+                            >Last use date</mat-list-item
+                          >
+                          <mat-list-item>{{
+                            device.lastusedate
+                          }}</mat-list-item>
+                        </div>
+                        <div
+                          class="d-flex justify-content-between powermodulelist"
+                        >
+                          <mat-list-item style="color: #7e84a3"
+                            >Last use Duration</mat-list-item
+                          >
+                          <mat-list-item>{{
+                            device.lastuseduration
+                          }}</mat-list-item>
+                        </div>
+                        <div
+                          class="d-flex justify-content-between powermodulelist"
+                        >
+                          <mat-list-item style="color: #7e84a3"
+                            >Last Handpieces serial number used</mat-list-item
+                          >
+                          <mat-list-item>{{
+                            device.lasthandpiecesno
+                          }}</mat-list-item>
+                        </div>
+                        <div
+                          class="d-flex justify-content-between powermodulelist"
+                        >
+                          <mat-list-item style="color: #7e84a3"
+                            >Estimated Life</mat-list-item
+                          >
+                          <mat-list-item>{{ device.estlife }}</mat-list-item>
+                        </div>
+                        <div
+                          class="d-flex justify-content-between powermodulelist"
+                        >
+                          <mat-list-item style="color: #7e84a3"
+                            >Last service date</mat-list-item
+                          >
+                          <mat-list-item>{{
+                            device.lastusedate
+                          }}</mat-list-item>
+                        </div>
+                        <div
+                          class="d-flex justify-content-between powermodulelist"
+                        >
+                          <mat-list-item style="color: #7e84a3"
+                            >Last charge time</mat-list-item
+                          >
+                          <mat-list-item>{{
+                            device.lastchargetime
+                          }}</mat-list-item>
+                        </div>
+                        <div
+                          class="d-flex justify-content-between powermodulelist"
+                        >
+                          <mat-list-item style="color: #7e84a3"
+                            >last used handpiece type</mat-list-item
+                          >
+                          <mat-list-item>{{
+                            device.lastusedhandpiecetype
+                          }}</mat-list-item>
+                        </div>
+                        <div
+                          class="d-flex justify-content-between powermodulelist"
+                        >
+                          <mat-list-item style="color: #7e84a3"
+                            >total use count</mat-list-item
+                          >
+                          <mat-list-item>{{
+                            device.totalusecount
+                          }}</mat-list-item>
+                        </div>
+                        <div
+                          class="d-flex justify-content-between powermodulelist"
+                        >
+                          <mat-list-item style="color: #7e84a3"
+                            >total charge count</mat-list-item
+                          >
+                          <mat-list-item>{{
+                            device.totalchargecount
+                          }}</mat-list-item>
+                        </div>
+                        <div
+                          class="d-flex justify-content-between powermodulelist"
+                        >
+                          <mat-list-item style="color: #7e84a3"
+                            >total usage duration</mat-list-item
+                          >
+                          <mat-list-item>{{
+                            device.totalusageduration
+                          }}</mat-list-item>
+                        </div>
+                        <div
+                          class="d-flex justify-content-between powermodulelist"
+                        >
+                          <mat-list-item style="color: #7e84a3"
+                            >estimated life remaining</mat-list-item
+                          >
+                          <mat-list-item>{{
+                            device.estliferemaining
+                          }}</mat-list-item>
+                        </div>
+                      </div>
+                    </mat-expansion-panel>
+                  </mat-accordion>
+                </li>
+                <li class="list-group-item baycharge-tab">
+                  <mat-accordion>
+                    <mat-expansion-panel
+                      [expanded]="step === 0"
+                      (opened)="setStep(0)"
+                      hideToggle
+                      class="powermodule"
+                    >
+                      <mat-expansion-panel-header>
+                        <mat-panel-title
+                          ><i
+                            class="fa fa-caret-down"
+                            aria-hidden="true"
+                            style="margin-right: 5px; color: #7e84a3"
+                          ></i>
+                          Stryker-2 Bay Charger
+                        </mat-panel-title>
+                        <br />
+                      </mat-expansion-panel-header>
+                      <div class="row">
+                        <div
+                          class="d-flex justify-content-between powermodulelist"
+                        >
+                          <mat-list-item style="color: #7e84a3"
+                            >Serial Number</mat-list-item
+                          >
+                          <mat-list-item>{{ device.serialno }}</mat-list-item>
+                        </div>
+                        <div
+                          class="d-flex justify-content-between powermodulelist"
+                        >
+                          <mat-list-item style="color: #7e84a3"
+                            >Firmware Version</mat-list-item
+                          >
+                          <mat-list-item>{{
+                            device.FirmwareversionBC
+                          }}</mat-list-item>
+                        </div>
+                        <div
+                          class="d-flex justify-content-between powermodulelist"
+                        >
+                          <mat-list-item style="color: #7e84a3"
+                            >Manufacturing Date</mat-list-item
+                          >
+                          <mat-list-item>{{
+                            device.ManufacturingdateBC
+                          }}</mat-list-item>
+                        </div>
+                        <div
+                          class="d-flex justify-content-between powermodulelist"
+                        >
+                          <mat-list-item style="color: #7e84a3"
+                            >Installation Date</mat-list-item
+                          >
+                          <mat-list-item>{{
+                            device.InstallationdateBC
+                          }}</mat-list-item>
+                        </div>
+                        <div
+                          class="d-flex justify-content-between powermodulelist"
+                        >
+                          <mat-list-item style="color: #7e84a3"
+                            >Last use date</mat-list-item
+                          >
+                          <mat-list-item>{{
+                            device.LastusedateBC
+                          }}</mat-list-item>
+                        </div>
+                        <div
+                          class="d-flex justify-content-between powermodulelist"
+                        >
+                          <mat-list-item style="color: #7e84a3"
+                            >Last use Duration</mat-list-item
+                          >
+                          <mat-list-item>{{
+                            device.LastusedurationBC
+                          }}</mat-list-item>
+                        </div>
+                        <div
+                          class="d-flex justify-content-between powermodulelist"
+                        >
+                          <mat-list-item style="color: #7e84a3"
+                            >Last Power Module serial number used</mat-list-item
+                          >
+                          <mat-list-item>{{
+                            device.LastchargedpowermoduleBC
+                          }}</mat-list-item>
+                        </div>
+                        <div
+                          class="d-flex justify-content-between powermodulelist"
+                        >
+                          <mat-list-item style="color: #7e84a3"
+                            >Total Use count</mat-list-item
+                          >
+                          <mat-list-item>{{
+                            device.TotalusecountBC
+                          }}</mat-list-item>
+                        </div>
+                        <div
+                          class="d-flex justify-content-between powermodulelist"
+                        >
+                          <mat-list-item style="color: #7e84a3"
+                            >Total usage duration</mat-list-item
+                          >
+                          <mat-list-item>{{
+                            device.TotalusagedurationBC
+                          }}</mat-list-item>
+                        </div>
+                        <div
+                          class="d-flex justify-content-between powermodulelist"
+                        >
+                          <mat-list-item style="color: #7e84a3"
+                            >Next Preventive maintanence check
+                          </mat-list-item>
+                          <mat-list-item>{{
+                            device.NextpreventivemaintenancecheckBC
+                          }}</mat-list-item>
+                        </div>
+                        <div
+                          class="d-flex justify-content-between powermodulelist"
+                        >
+                          <mat-list-item style="color: #7e84a3"
+                            >Total usage duration</mat-list-item
+                          >
+                          <mat-list-item>{{
+                            device.TotalusagedurationBC
+                          }}</mat-list-item>
+                        </div>
+                        <div
+                          class="d-flex justify-content-between powermodulelist"
+                        >
+                          <mat-list-item style="color: #7e84a3"
+                            >Estimated life</mat-list-item
+                          >
+                          <mat-list-item>{{
+                            device.EstimatedlifeBC
+                          }}</mat-list-item>
+                        </div>
+                        <div
+                          class="d-flex justify-content-between powermodulelist"
+                        >
+                          <mat-list-item style="color: #7e84a3"
+                            >Frequently charged power modules</mat-list-item
+                          >
+                          <mat-list-item>{{
+                            device.FrequentlychargedpowermodulesBC
+                          }}</mat-list-item>
+                        </div>
+                      </div>
+                    </mat-expansion-panel>
+                  </mat-accordion>
+                </li>
+                <li class="list-group-item dualtriggerdrill-tab">
+                  <mat-accordion>
+                    <mat-expansion-panel
+                      [expanded]="step === 0"
+                      (opened)="setStep(0)"
+                      hideToggle
+                      class="powermodule"
+                    >
+                      <mat-expansion-panel-header>
+                        <mat-panel-title
+                          ><i
+                            class="fa fa-caret-down"
+                            aria-hidden="true"
+                            style="margin-right: 5px; color: #7e84a3"
+                          ></i>
+                          Stryker Duel Trigger Drill
+                        </mat-panel-title>
+                        <br />
+                      </mat-expansion-panel-header>
+                      <div class="row">
+                        <div
+                          class="d-flex justify-content-between powermodulelist"
+                        >
+                          <mat-list-item style="color: #7e84a3"
+                            >Handpiece type</mat-list-item
+                          >
+                          <mat-list-item>{{
+                            device.HandpiecetypeDTD
+                          }}</mat-list-item>
+                        </div>
+                        <div
+                          class="d-flex justify-content-between powermodulelist"
+                        >
+                          <mat-list-item style="color: #7e84a3"
+                            >Serial Number</mat-list-item
+                          >
+                          <mat-list-item>{{ device.serialno }}</mat-list-item>
+                        </div>
+                        <div
+                          class="d-flex justify-content-between powermodulelist"
+                        >
+                          <mat-list-item style="color: #7e84a3"
+                            >Manufacturing Date</mat-list-item
+                          >
+                          <mat-list-item
+                            >{{device.ManufacturingdateDTD}}</mat-list-item
+                          >
+                        </div>
+                        <div
+                          class="d-flex justify-content-between powermodulelist"
+                        >
+                          <mat-list-item style="color: #7e84a3"
+                            >Installation Date</mat-list-item
+                          >
+                          <mat-list-item>{{
+                            device.InstallationdateDTD
+                          }}</mat-list-item>
+                        </div>
+                        <div
+                          class="d-flex justify-content-between powermodulelist"
+                        >
+                          <mat-list-item style="color: #7e84a3"
+                            >Last use date</mat-list-item
+                          >
+                          <mat-list-item>{{
+                            device.LastusedateDTD
+                          }}</mat-list-item>
+                        </div>
+                        <div
+                          class="d-flex justify-content-between powermodulelist"
+                        >
+                          <mat-list-item style="color: #7e84a3"
+                            >Last use Duration</mat-list-item
+                          >
+                          <mat-list-item>{{
+                            device.LastusedurationDTD
+                          }}</mat-list-item>
+                        </div>
+                        <div
+                          class="d-flex justify-content-between powermodulelist"
+                        >
+                          <mat-list-item style="color: #7e84a3"
+                            >Last charged module serial number
+                            used</mat-list-item
+                          >
+                          <mat-list-item>{{
+                            device.LastchargedmoduleserialnousedDTD
+                          }}</mat-list-item>
+                        </div>
+                        <div
+                          class="d-flex justify-content-between powermodulelist"
+                        >
+                          <mat-list-item style="color: #7e84a3"
+                            >Total use count</mat-list-item
+                          >
+                          <mat-list-item>{{
+                            device.TotalusecountDTD
+                          }}</mat-list-item>
+                        </div>
+                        <div
+                          class="d-flex justify-content-between powermodulelist"
+                        >
+                          <mat-list-item style="color: #7e84a3"
+                            >Total usage duration</mat-list-item
+                          >
+                          <mat-list-item>{{
+                            device.TotalusagedurationDTD
+                          }}</mat-list-item>
+                        </div>
+                        <div
+                          class="d-flex justify-content-between powermodulelist"
+                        >
+                          <mat-list-item style="color: #7e84a3"
+                            >Next preventive maintenance check</mat-list-item
+                          >
+                          <mat-list-item>{{
+                            device.NextpreventivemaintenancecheckDTD
+                          }}</mat-list-item>
+                        </div>
+                        <div
+                          class="d-flex justify-content-between powermodulelist"
+                        >
+                          <mat-list-item style="color: #7e84a3"
+                            >Estimated life remaining</mat-list-item
+                          >
+                          <mat-list-item>{{
+                            device.EstimatedliferemainingDTD
+                          }}</mat-list-item>
+                        </div>
+                        <div
+                          class="d-flex justify-content-between powermodulelist"
+                        >
+                          <mat-list-item style="color: #7e84a3"
+                            >Frequently used power modules
+                          </mat-list-item>
+                          <mat-list-item>{{
+                            device.FrequentlyusedpowermodulesDTD
+                          }}</mat-list-item>
+                        </div>
+                      </div>
+                    </mat-expansion-panel>
+                  </mat-accordion>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-5">
+            <div class="row">
+              <app-usagetrendbar></app-usagetrendbar>
+            </div>
+            <div
+              class="card"
+              style="width: 97%; margin-left: 22px; padding: 8px"
+            >
+              <p class="head" style="text-align: left; margin-top: 10px">
+                Errors/Warnings
+                <span style="float: right">
+                  <div
+                    class="dropdown"
+                    style="float: right"
+                    (clickOutside)="clickedOutsideagentOptions()"
+                  >
+                    <img
+                      src="./../../../../../assets/img/3dots.svg"
+                      (click)="moreOptionagentOptions()"
+                      style="margin-top: 10px"
+                    />
+                    <div
+                      id="myDropdown"
+                      class="dropdown-content"
+                      *ngIf="agentOptions"
+                    >
+                      <option value="pdf">Save as PNG</option>
+                      <option value="pdf">Save as PDF</option>
+                      <option value="pdf">Save as Excel</option>
+                    </div>
+                  </div>
+                </span>
+              </p>
+
+              <div
+                class="d-flex justify-content-between"
+                *ngFor="let d of deviceError; let i = index"
+              >
+                <mat-list-item style="color: red"
+                  >Error Message: {{ d.message }}</mat-list-item
+                >
+                <mat-list-item>{{ d.date }}</mat-list-item>
+              </div>
+            </div>
+          </div>
+        </div>
+      </mat-tab>
+
+      <!-- complaint info, location, Service Update, agent assign-->
+      <mat-tab label="Complaint">
+        <div class="row m-0 p-0">
+          <div class="col-7">
+            <article class="card">
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item complaint-copmplaint">
+                  <h4 class="head" style="text-align: left; margin-top: 5px">
+                    Complaint
+                    <span style="float: right">
+                      <div
+                        class="dropdown"
+                        style="float: right"
+                        (clickOutside)="clickedOutsidecomplaintOptions()"
+                      >
+                        <img
+                          src="./../../../../../assets/img/3dots.svg"
+                          (click)="moreOptioncomplaintOptions()"
+                          style="margin-top: 10px"
+                        />
+                        <div
+                          id="myDropdown"
+                          class="dropdown-content"
+                          *ngIf="complaintOptions"
+                        >
+                          <option value="pdf">Save as PNG</option>
+                          <option value="pdf">Save as PDF</option>
+                          <option value="pdf">Save as Excel</option>
+                        </div>
+                      </div>
+                    </span>
+                  </h4>
+                </li>
+                <hr class="m-0 p-0 hrline" />
+                <li class="list-group-item complaint-note">
+                  <div class="head">Note</div>
+                  <p style="font-size: 12px; color: #7e84a3">
+                    Charging or fast charging the device may be hotter to
+                    touch.thus does not effect the device lifespan or perfomance
+                  </p>
+                </li>
+                <hr class="m-0 p-0 hrline" />
+                <li class="list-group-item complaint-action">
+                  <h4 class="head">Possible action</h4>
+                  <button type="button" class="btn btn-outline-secondary">
+                    Order Battery
+                  </button>
+                  <button type="button" class="btn btn-outline-secondary">
+                    Assign Service Agent
+                  </button>
+                </li>
+                <hr class="m-0 p-0 hrline" />
+                <li class="list-group-item complaint-Map">
+                  <div class="head">Location</div>
+                  <app-location-agent-map class="m-0"></app-location-agent-map>
+                </li>
+              </ul>
+            </article>
+          </div>
+          <div class="col-5">
+            <div class="row">
+              <div class="col-12 card" style="width: 98%">
+                <div class="card-progress">
+                  <p class="head" style="text-align: left; margin-top: 14px">
+                    Service Updates
+                    <span style="float: right">
+                      <span style="float: right">
+                        <div
+                          class="dropdown"
+                          style="float: right"
+                          (clickOutside)="clickedOutsideProgress()"
+                        >
+                          <img
+                            src="./../../../../../assets/img/3dots.svg"
+                            (click)="moreOptionProgress()"
+                            style="margin-top: 10px"
+                          />
+                          <div
+                            id="myDropdown"
+                            class="dropdown-content"
+                            *ngIf="progress"
+                          >
+                            <option value="pdf">Save as PNG</option>
+                            <option value="pdf">Save as PDF</option>
+                            <option value="pdf">Save as Excel</option>
+                          </div>
+                        </div>
+                      </span>
+                    </span>
+                  </p>
+                  <div class="card-progress-model">
+                    <div class="row m-0 p-0">
+                      <div class="col-1">
+                        <div class="vl"></div>
+                      </div>
+                      <div class="col-10 m-0 p-0">
+                        <table class="table-progress" style="margin-top: 5px">
+                          <tbody>
+                            <tr class="table-progress-height">
+                              <img
+                                [src]="
+                                  level5 != undefined ? proIcon : circleIcon
+                                "
+                                class="img"
+                              />
+                              <a> Repair Completed </a>
+                              <p class="status">{{ level5 }}</p>
+                            </tr>
+                            <tr class="table-progress-height">
+                              <img
+                                [src]="
+                                  level4 != undefined ? proIcon : circleIcon
+                                "
+                                class="img"
+                              />
+                              <a> Starting Repair</a>
+                              <p class="status">{{ level4 }}</p>
+                            </tr>
+                            <tr class="table-progress-height">
+                              <img
+                                [src]="
+                                  level3 != undefined ? proIcon : circleIcon
+                                "
+                                class="img"
+                              />
+                              <a> Engineer Assisted</a>
+                              <p class="status">{{ level3 }}</p>
+                            </tr>
+                            <tr class="table-progress-height">
+                              <img
+                                [src]="
+                                  level2 != undefined ? proIcon : circleIcon
+                                "
+                                class="img"
+                              />
+                              <a> Acknowlwdged By Service Center</a>
+                              <p class="status">{{ level2 }}</p>
+                            </tr>
+                            <tr class="table-progress-height">
+                              <img
+                                [src]="
+                                  level1 != undefined ? proIcon : circleIcon
+                                "
+                                class="img"
+                              />
+                              <a> Asssisted to Service Center</a>
+                              <p class="status">{{ level1 }}</p>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="card" style="width: 97%" *ngIf="IsVisible == true">
+                <p class="head" style="text-align: left; margin-top: 10px">
+                  Near By agent
+                  <span style="float: right">
+                    <div
+                      class="dropdown"
+                      style="float: right"
+                      (clickOutside)="clickedOutsideagentOptions()"
+                    >
+                      <img
+                        src="./../../../../../assets/img/3dots.svg"
+                        (click)="moreOptionagentOptions()"
+                        style="margin-top: 10px"
+                      />
+                      <div
+                        id="myDropdown"
+                        class="dropdown-content"
+                        *ngIf="agentOptions"
+                      >
+                        <option value="pdf">Save as PNG</option>
+                        <option value="pdf">Save as PDF</option>
+                        <option value="pdf">Save as Excel</option>
+                      </div>
+                    </div>
+                  </span>
+                </p>
+
+                <div>
+                  <p>
+                    Makesh Goel
+                    <span style="float: right">
+                      <button
+                        type="button"
+                        class="btn btn-dark btn-outline-primary btn-order"
+                        (click)="openDialog()"
+                      >
+                        Assign Agent
+                      </button>
+                    </span>
+                  </p>
+                  <p style="margin-top: -10px">
+                    <img
+                      src="./../../../../../assets/img/service/location@2x.jpg"
+                      width="20px"
+                    />
+                    Sheopur, &#11044; 2.5Km away
+                  </p>
+                </div>
+              </div>
+
+              <mat-card
+                class="col-12 card"
+                *ngIf="IsVisible == false"
+                style="height: 300px"
+              >
+                <p class="head" style="text-align: left; margin-top: 5px">
+                  Service Agent details
+                  <span style="float: right">
+                    <mat-icon style="margin-right: 0px">more_horiz</mat-icon>
+                  </span>
+                </p>
+                <table class="table">
+                  <tbody>
+                    <tr>
+                      <td style="width: 20%">Agent Name</td>
+                      <td class="gen-data">Makesh Goel</td>
+                    </tr>
+                    <tr>
+                      <td style="width: 30%">Distance</td>
+                      <td class="gen-data">2.5Km</td>
+                    </tr>
+
+                    <tr>
+                      <td style="width: 20%">Adress</td>
+                      <td class="gen-data">
+                        Ponekkara,<br />P. O, Kochi, <br />Kerala 682041
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </mat-card>
+            </div>
+          </div>
+        </div>
+      </mat-tab>
+    </mat-tab-group>
+  </div>
+</div>

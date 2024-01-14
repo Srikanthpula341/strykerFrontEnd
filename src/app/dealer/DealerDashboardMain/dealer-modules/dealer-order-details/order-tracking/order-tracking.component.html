@@ -1,0 +1,187 @@
+<div class="row mt-3">
+  <div class="col-xl-7 col-lg-7 col-md-6 col-12 m-0" id="order-list-accordian">
+    <div class="card card-checklist m-0">
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item complaint-copmplaint">
+          <p class="order-checklist-head" style="text-align: left; margin-top: 5px">
+            Checklist
+            <span style="float: right">
+              <mat-icon mat-button #myMenuTrigger="matMenuTrigger" [matMenuTriggerFor]="menuRef">more_horiz</mat-icon>
+              <mat-menu #menuRef="matMenu">
+                <button mat-menu-item>Save as PDF</button>
+                <button mat-menu-item>Save as PNG</button>
+                <button mat-menu-item>Save as Excel</button>
+              </mat-menu>
+            </span>
+          </p>
+        </li>
+
+        <mat-accordion>
+          <mat-expansion-panel hideToggle *ngFor="let item of ToolsData" class="mt-2">
+            <mat-expansion-panel-header class="p-1 m-0">
+              <mat-card class="checklist-expanison-pannel">
+                <mat-panel-title class="d-flex">
+                  <span class="material-icons m-0 p-0">expand_more</span>
+                  <div class="p-1 m-0" style="font-size: 14px; margin-left: -50%">
+                    {{ item.name }} ({{ item.tools.length }})
+                  </div>
+                  <div class="ms-auto me-0 p-2 bd-highlight">
+                    <img src="./../../../../../assets/img/dealer/Scanner.svg" />
+                  </div>
+                </mat-panel-title>
+              </mat-card>
+            </mat-expansion-panel-header>
+            <ng-template matExpansionPanelContent class="m-0 p-0" id="order-list-checking">
+              <ng-container id="group-components" *ngFor="let i of item.tools">
+                <div class="card card-checklist-sub m-2">
+                  <label>
+                    <div class="d-flex flex-row">
+                      <div class="p-0 ms-2 mt-3" (click)="checkTools(item.id, i.code, i.name)">
+                        <img src="./../../../../../assets/img/dealer/check-not-circle.svg" class="check-icons" />
+                        <!-- <img src="./../../../../../assets/img/dealer/checked-circle.svg" alt="20x20"
+                          class="check-icons"> -->
+                      </div>
+                      <div class="pt-1">
+                        <div class="d-flex flex-column m-1 mt-2" (click)="selctedList($event)">
+                          <div class="tool-name">
+                            {{ i.name
+                            }}<span class="tool-status">&#11044;</span>
+                          </div>
+                          <div class="tool-serial">Sl.No.:{{ i.slno }}</div>
+                        </div>
+                      </div>
+                    </div>
+                  </label>
+                </div>
+              </ng-container>
+            </ng-template>
+          </mat-expansion-panel>
+        </mat-accordion>
+      </ul>
+    </div>
+  </div>
+  <div class="col-lg-5 col-xl-5 col-md-6 col-12 m-0">
+    <div class="col-12 card m-0" style="width: 98%">
+      <div class="card-progress m-0">
+        <p class="order-checklist-head" style="text-align: left; margin-top: 14px">
+          Order Updates
+          <span style="float: right;margin-right: 10px">
+            <button mat-button class="more-options" [matMenuTriggerFor]="menuRef">
+              <mat-icon class="mat-18">more_horiz</mat-icon>
+            </button>
+
+            <mat-menu #menuRef="matMenu">
+              <button mat-menu-item>Save as PDF</button>
+              <button mat-menu-item>Save as PNG</button>
+              <button mat-menu-item>Save as Excel</button>
+            </mat-menu>
+          </span>
+        </p>
+        <div class="card-progress-model" style="margin-left: 5%">
+          <div class="row m-0 p-0">
+            <div class="col-1">
+              <div class="vl"></div>
+            </div>
+            <div class="col-10 m-0 p-0">
+              <table class="table-progress" style="margin-top: 5px">
+                <tbody>
+                  <tr class="table-progress-height">
+                    <img [src]="
+                        delivered!= undefined ? proIcon : circleIcon
+                      " class="img-progress" />
+
+
+                    <a> Delivered </a>
+                    <p class="status">{{delivered }}</p>
+                  </tr>
+
+                  <tr class="table-progress-height">
+                    <img [src]="
+                        readyToShipping != ''
+                          ? proIcon
+                          : circleIcon
+                      " class="img-progress" />
+                    <a> Ready to Shipping</a>
+                    <p class="status">{{ readyToShipping }}</p>
+                  </tr>
+                  <tr class="table-progress-height">
+                    <img [src]="
+                        packagingToolSet != ''
+                          ? proIcon
+                          : circleIcon
+                      " class="img-progress" />
+                    <a> Packaging Tools set</a>
+                    <p class="status">{{ packagingToolSet }}</p>
+                  </tr>
+                  <tr class="table-progress-height">
+                    <img [src]="
+                        verificationCompleted != ''
+                          ? proIcon
+                          : circleIcon
+                      " class="img-progress" />
+                    <a> Verification Completed</a>
+                    <p class="status">
+                      {{ verificationCompleted }}
+                    </p>
+                  </tr>
+                  <tr class="table-progress-height">
+                    <img [src]="
+                        orderConfirmed != '' ? proIcon : circleIcon
+                      " class="img-progress" />
+                    <a>Order Confirmed</a>
+                    <p class="status">{{ orderConfirmed }}</p>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card" style="width: 97%">
+      <p class="head" style="text-align: left; margin-top: 10px">
+        Near By agent
+        <span style="float: right"> </span>
+      </p>
+
+      <div>
+        <p>
+          Makesh Goel
+          <span style="float: right"> </span>
+        </p>
+        <p style="margin-top: -10px">
+          <img src="./../../../../../assets/img/service/location@2x.jpg" width="20px" />
+          Sheopur, &#11044; 2.5Km away
+        </p>
+      </div>
+    </div>
+
+    <!-- <mat-card class="col-12 card" style="height: 300px">
+        <p class="head" style="text-align: left; margin-top: 5px">
+          Service Agent details
+          <span style="float: right">
+            <mat-icon style="margin-right: 0px">more_horiz</mat-icon>
+          </span>
+        </p>
+        <table class="table">
+          <tbody>
+            <tr>
+              <td style="width: 20%">Agent Name</td>
+              <td class="gen-data">Makesh Goel</td>
+            </tr>
+            <tr>
+              <td style="width: 30%">Distance</td>
+              <td class="gen-data">2.5Km</td>
+            </tr>
+
+            <tr>
+              <td style="width: 20%">Adress</td>
+              <td class="gen-data">
+                Ponekkara,<br />P. O, Kochi, <br />Kerala 682041
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </mat-card> -->
+  </div>
+</div>

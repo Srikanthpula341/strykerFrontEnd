@@ -1,0 +1,178 @@
+<mat-card class="card return-details-card m-0 mt-3 mat-elevation-1">
+  <mat-card-title>
+    <p class="head" style="text-align: left">
+      Hospital details
+      <span style="float: right">
+        <button
+          mat-button
+          class="more-options"
+          [matMenuTriggerFor]="menuRef"
+        >
+          <mat-icon class="mat-18">more_horiz</mat-icon>
+        </button>
+
+        <mat-menu #menuRef="matMenu">
+          <button mat-menu-item>Save as PDF</button>
+          <button mat-menu-item>Save as PNG</button>
+          <button mat-menu-item>Save as Excel</button>
+        </mat-menu>
+      </span>
+    </p>
+  </mat-card-title>
+  <mat-card-content>
+    <div class="customer-info">
+      <table class="gen-table" >
+        <tbody>
+          <tr>
+            <td class="gen-data-header" style="width: 25%">Customer Type  </td> 
+            <td class="gen-data">{{ hospitalData?.customerType }}</td>
+          </tr>
+          <tr>
+            <td class="gen-data-header">Customer Name</td>
+            <td class="gen-data">{{ hospitalData?.customerName }}</td>
+          </tr>
+          <tr>
+            <td class="gen-data-header">Ticket Issued By</td>
+            <td class="gen-data">Nikhil</td>
+          </tr>
+          <tr>
+            <td class="gen-data-header">Address</td>
+            <td class="gen-data">
+              {{ hospitalData?.address }}
+              <!-- {{ hospitalData?.address[1]  }} 
+              <br />
+              {{ hospitalData?.address[2]  }} , {{ hospitalData?.address[4] }}
+              <br />
+              {{ hospitalData?.address[5]  }}  -->
+              <br />
+            </td>
+          </tr>
+          <tr>
+            <td class="gen-data-header">Phone Number</td>
+            <td class="gen-data">{{ hospitalData?.phone }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </mat-card-content>
+</mat-card>
+<mat-card class="card m-0 mt-2 card-register-Table">
+  <p class="head" style="text-align: left">
+    Other Tickets
+    <span style="float: right; display: flex">
+      <div class="d-flex search_bar">
+        <div class="icon-input" style="margin-right: 10px">
+          <input
+            matInput
+            (keyup)="applyFilter($event)"
+            class="icon-input__text-field"
+            type="text"
+          />
+          <i class="icon-input__icon material-icons">search</i>
+        </div>
+        <img
+          src="./../../../../../assets/img/service/filter (1)@2x.png"
+          width="16px"
+          height="16px"
+          class="filter-img"
+        />
+        <div
+          class="dropdown"
+          style="float: right"
+          (clickOutside)="clickedOutsideOtherRegister()"
+        >
+          <img
+          
+            src="./../../../../../assets/img/3dots.svg"
+            (click)="moreOptionOtherRegister()"
+            style="margin-top: -8px; margin-left: 6px;"
+            width="15px"
+          />
+          <div
+            id="myDropdown"
+            class="dropdown-content"
+            *ngIf="OtherRegister"
+          >
+            <option value="pdf">Save as PNG</option>
+            <option value="pdf">Save as PDF</option>
+            <option value="pdf">Save as Excel</option>
+          </div>
+        </div>
+      </div>
+    </span>
+  </p>
+
+  <mat-card-content>
+
+    <div class="table-container mat-elevation-z8">
+      <mat-table [dataSource]="dataSource" matSort>
+        <!--Chevron-->
+        <ng-container matColumnDef="expandtag">
+          <mat-header-cell *matHeaderCellDef mat-sort-header class="table-header"></mat-header-cell>
+          <mat-cell *matCellDef="let tools" (click)="tools.isExpand = !tools.isExpand" class="table-data">
+            <i *ngIf="!tools.isExpand" class="fa fa-chevron-right"></i>
+            <i *ngIf="tools.isExpand" class="fa fa-chevron-up"></i>
+          </mat-cell>
+        </ng-container>
+
+        <!--Ticket Number-->
+        <ng-container matColumnDef="ticketnumber">
+          <mat-header-cell *matHeaderCellDef mat-sort-header class="table-header"> Ticket Number</mat-header-cell>
+          <mat-cell *matCellDef="let tools" data-label="ticketnumber" data-info="primary" class="table-data" >
+            {{ tools.ticketnumber}}
+            <!-- <button mat-icon-button class="data-info-toggler" (click)="tools.expanded = !tools.expanded; toggleSecondaryInfo(tools.expanded, tools);"
+>
+  <mat-icon>{{tools.expanded ? 'expand_less' : 'expand_more'}}</mat-icon>
+</button> -->
+          </mat-cell>
+
+        </ng-container>
+
+        <!--Requested Date-->
+        <ng-container matColumnDef="requesteddate">
+          <mat-header-cell *matHeaderCellDef mat-sort-header class="table-header"> Requested Date</mat-header-cell>
+          <mat-cell *matCellDef="let tools" data-label="requesteddate" class="table-data" >
+            {{ tools.requesteddate }}
+          </mat-cell>
+        </ng-container>
+
+        <!--Return Date-->
+        <ng-container matColumnDef="returndate">
+          <mat-header-cell *matHeaderCellDef mat-sort-header class="table-header">   Return Date</mat-header-cell>
+          <mat-cell *matCellDef="let tools" data-label="returndate" class="table-data" >
+            {{ tools.requesteddate }}
+          </mat-cell>
+        </ng-container>
+        <!--Status -->
+        <ng-container matColumnDef="status">
+          <mat-header-cell *matHeaderCellDef mat-sort-header class="table-header">   Status</mat-header-cell>
+          <mat-cell *matCellDef="let tools" data-label="status" class="table-data">
+            {{ tools.status }}
+          </mat-cell>
+        </ng-container>
+        <!--Action-->
+        <ng-container matColumnDef="action">
+          <mat-header-cell *matHeaderCellDef mat-sort-header class="table-header">   Action</mat-header-cell>
+          <mat-cell *matCellDef="let tools" data-label="action" class="table-data">
+            <i class="fa fa-ellipsis-h"></i>
+            {{ tools.action }}
+          </mat-cell>
+        </ng-container>
+
+        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: displayedColumns;" [attr.data-info-id]="row.ticketnumber">
+        </mat-row>
+
+      </mat-table>
+    </div>
+
+   
+  </mat-card-content>
+  <mat-paginator
+  #paginator
+  [pageSizeOptions]="pageSizes"
+  showFirstLastButtons
+  aria-label="select page of user"
+  class="paginator-data"
+></mat-paginator>
+</mat-card>

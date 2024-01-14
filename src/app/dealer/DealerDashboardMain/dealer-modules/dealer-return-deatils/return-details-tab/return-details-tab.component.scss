@@ -1,0 +1,448 @@
+// @import url("https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css");
+
+select {
+  font-family: "FontAwesome", Verdana;
+}
+
+
+/////////////////////////////////////////////////////////////////////////////////////
+/// ///////////////////////////////////////
+/// /////////////////////////// Css for return details start
+
+#returnList {
+ // width: 130%;
+  height: 98%;
+  // background-color: #134469;
+  // border: 0px solid #EEF1F3;
+  // border-radius: 4px;
+  // opacity: 1;
+  border: none;
+  border-radius: 0%;
+  margin-top: 5px;
+
+}
+
+.Return {
+  text-align: left;
+  font: normal normal medium 16px/25px Poppins;
+  letter-spacing: 0px;
+  color: #134469;
+  opacity: 1;
+}
+
+.itemsRemaining {
+  font-size: 8px;
+
+  // width: max-content;
+  border-color: #e11545;
+  background-color: #e115454f;
+  color: #e11545;
+  margin-top: 4%;
+  margin-left: -2% !important;
+  // text-align: center;
+}
+
+
+  .missingItemsBtn {
+    margin-top: 10px;
+    margin-left: 9px;
+    margin-right: 12px;
+    width: 112px;
+    height: 32px;
+    border-radius: 5px;
+    font-size: x-small;
+  }
+
+
+
+
+.missingItemsBtn {
+  margin-top: 10px;
+  margin-left: 30px;
+  width: 128px;
+  height: 33px;
+  border-radius: 5px;
+  font-size: x-small;
+}
+
+.verifyButton {
+  margin-top: 13px;
+  width: 58px;
+  height: 30px;
+  border-radius: 5px;
+  font-size: x-small;
+}
+@media ( max-width:360px) {
+  .itemsRemaining {
+    font-size: 8px;
+
+    // width: max-content;
+    border-color: #e11545;
+    background-color: #e115454f;
+    color: #e11545;
+    margin-top: 4%;
+    margin-left: 5% !important;
+    // text-align: center;
+  }
+  .missingItemsBtn {
+    margin-top: 10px;
+    margin-left: 5px;
+    margin-right: 12px;
+    width: 112px;
+    height: 32px;
+    border-radius: 5px;
+    font-size: x-small;
+  }
+  .verifyButton {
+    margin-top: 13px;
+    width: 58px;
+    height: 30px;
+    border-radius: 5px;
+    font-size: x-small;
+  }
+
+}
+
+#returnListTopCard {
+  width: 100%;
+  height: 41px !important;
+  background-color: #f7237825 !important ;
+  border-radius: 0%;
+  border: none;
+
+ display: inline-flex;
+}
+.topCardText{
+  margin-top: -2%;
+
+}
+.square {
+  border: 1px ;
+  background: #e115454f;
+  border: 1px solid #e11545;
+  border-radius: 5px;
+  opacity: 0.5;
+  width: 6%;
+  // height: 2%;
+  margin-left: 90%;
+  margin-top: -6%;
+  text-align: center;
+}
+.two {
+  color: var(--unnamed-color-e11545);
+  font: normal normal 600 12px/18px Poppins;
+  letter-spacing: 0.75px;
+  color: #e11545;
+  opacity: 1;
+  margin-left: -2%;
+}
+#returnToolsListCard {
+  width: 100% !important;
+  height: 52vh;
+  background: #f4f7fc 0% 0% no-repeat padding-box !important;
+  border: 1px solid #eef1f3;
+  z-index: 0 !important;
+  box-shadow: none !important;
+  border-radius: 0%;
+  overflow-y: scroll;
+
+  scrollbar-width: thin;
+}
+
+#returnListSubCard {
+  margin-top: -5%;
+  width: 90%;
+  height: 30%;
+  /* UI Properties */
+  background: #ffffff 0% 0% no-repeat padding-box;
+  border: 1px solid #eef1f3;
+  opacity: 1;
+  border-radius: 0%;
+  border: none;
+  font-size: small;
+  font-weight:500;
+}
+.returnCheckBox:checked[type="checkbox"] {
+  background-color: #ffa600;
+  box-shadow: none;
+  border-color: #ffa600;
+}
+
+#verifiedToolsListCard {
+  margin-top: -1% !important;
+  width: 100%;
+  height: 52vh;
+  border: 1px solid #eef1f3;
+  opacity: 1;
+  background-color: #f4f7fc !important;
+  z-index: 0 !important;
+  box-shadow: none !important;
+  border-radius: 0%;
+  overflow-y: scroll;
+
+  scrollbar-width: thin;
+}
+
+.verifiedList {
+  margin-top: 5px;
+  height: 80vh;
+
+
+  background: #ffffff 0% 0% no-repeat padding-box;
+  border: 1px solid #eef1f3;
+  border-radius: 0px;
+  opacity: 1;
+
+}
+.VerifiedTitle {
+  text-align: left;
+  font: 18px;
+  letter-spacing: 0px;
+  color: #134469;
+  // margin-top: 10%;
+}
+#searchBtn {
+  // width: 90%;
+  height: 1%;
+  border: 1px solid #9aacc1;
+  border-radius: 4px;
+  opacity: 0.43;
+  margin-left: 36%;
+  margin-top: -25px !important;
+  align-content: flex-end;
+
+}
+.searchIcon {
+  margin-left: 355px;
+
+  margin-top: -15%;
+
+}
+.search{
+text-align: end;
+}
+// .searchText{
+//   width: 215px;
+// height: 17px;
+// /* UI Properties */
+// text-align: left;
+// font-size:x-small;
+// font: normal normal medium 12px/18px Poppins;
+// letter-spacing: 0px;
+// color: #134469;
+// opacity: 0.28;
+// }
+.verifiedCount {
+  border-color: #21d59b;
+
+  margin-top: -5%;
+  color: #21d59b;
+  background-color: #21d59b3b;
+  // width: 125px;
+  // height: 21px;
+  border-radius: 5px;
+  font-size: 10px;
+}
+.verifiedBtnGrn {
+  color: var(--unnamed-color-21d59b);
+  text-align: left;
+  font: normal normal normal 6px/15px Poppins;
+  letter-spacing: 0px;
+  color: #21d59b;
+  opacity: 1;
+  margin-top: 5%;
+}
+.printerIcon {
+  margin-top: -5%;
+  margin-left: 10%;
+  width: 20px;
+}
+.damageBtn {
+  margin-top: -5%;
+  margin-left: 20px;
+  width: 180px;
+  // height: 30px;
+  border-radius: 5px;
+  font-size: x-small;
+}
+@media ( max-width:360px) {
+  .damageBtn {
+    margin-top: -5%;
+    margin-left: 20px;
+    width: 70px;
+    // height: 30px;
+    border-radius: 5px;
+    font-size: x-small;
+  }
+
+}
+@media ( max-width:1200px) {
+  .damageBtn {
+    margin-top: -5%;
+    margin-left: 20px;
+    width: 100px;
+    // height: 30px;
+    border-radius: 5px;
+    font-size: x-small;
+  }
+
+}
+
+.verifiedListTopCard {
+  margin-top: 20px;
+  width: 100%;
+  height: 41px;
+  /* background: var(--unnamed-color-21d59b) 0% 0% no-repeat padding-box; */
+  background: #21d59c25;
+  border-radius: 0%;
+}
+#verifyListSubCard {
+  margin-top: -6% !important;
+  width: 92%;
+  height: 50%;
+  border-radius: 0%;
+  font-size: small;
+  font-weight:500;
+}
+
+.cardText {
+  text-align: left;
+  font: normal normal medium 0.625em/1.5625em Poppins;
+  letter-spacing: 0px;
+  color: #134469;
+  opacity: 1;
+}
+.returnListDeviceCode {
+  color: #f72378;
+}
+.verifiedListDeviceCode{
+  color: #14A097;
+
+}
+.tiitleVerifiedList{
+  margin-top: -2%;
+
+
+}
+.powerToolTitle {
+  text-align: left;
+  font: normal normal 600 0.75em/1.125em Poppins;
+  letter-spacing: 0.75px;
+  color: #4a6172;
+  font-size:x-small;
+
+}
+.mat-18 {
+  color: #0d142a;
+  border: none;
+border-radius: 0%;
+  opacity: 0.4;
+  font-size: 20px;
+}
+.more-options {
+  background-color: #ffffff;
+  padding: 0;
+  margin: 0;
+  height: 10px;
+  width: fit-content;
+  border: none;
+  position: absolute;
+  margin-left: -2.3%;
+}
+
+.menuRef {
+  height: 1000px;
+}
+
+button.mat-menu-item {
+  height: 40px;
+}
+// .icon-input {
+
+//   margin-bottom: 0.625em;
+
+//   margin-right:3em;
+
+//   margin-left: 5em ;
+
+//   position: relative;
+
+//   max-width: 18.75em;
+
+//   float: right;
+
+//   &__text-field{
+
+//     margin-top: -13.05em;
+
+//     margin-left: -12em;
+
+//     width: 15.5em;
+
+//     padding: 0.3125em 1.875em 0.3125em 0.3125em;
+
+//     border-radius: 0.25em;
+
+//     border: 0.0625em solid #ccc;
+
+//     height: 1.8em;
+
+//   }
+
+//   &__icon{
+
+//     color: rgb(216 213 213);
+
+//     position: absolute;
+
+//     // margin: 1.7em 0.3125em;
+
+//     right: 0.5rem;
+
+//     margin-top: 0.5rem;
+
+//     transform: translateY(-50%);
+
+//   }
+
+//   &__text-field:focus + &__icon{
+
+//     color: #b0f479;
+
+//   }
+
+// }
+.icon-input {
+  margin-bottom: 10px;
+  position: relative;
+  max-width: 250px;
+
+  &__text-field{
+    margin-left: 0.5rem;
+    width: 100%;
+    height: 25px;
+    padding: 5px 30px 5px 5px;
+    border: 1px solid #EEF1F3;
+    border-radius: 4px;
+
+  }
+  &__icon{
+      color: rgb(149, 147, 147);
+
+      position: absolute;
+      top: 50%;
+      right: 0.2rem;
+      transform: translateY(-50%);
+  }
+  &__text-field:focus + &__icon{
+
+    color: #FF8400;
+  }
+  &__text-field::placeholder {
+    font: 13px/3 sans-serif;
+
+}
+}
+
+
+

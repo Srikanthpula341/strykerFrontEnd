@@ -1,0 +1,25 @@
+<mat-drawer-container class="sidebar-container mat-typography" fullscreen>
+  <mat-drawer class="mat-inner" #drawer mode="side" disableClose="true" opened="true">
+    <button class="grid-toggle" mat-mini-fab (click)="isExpanded = !isExpanded">
+      <mat-icon aria-label="Menu">apps</mat-icon>
+    </button>
+
+    <mat-nav-list>
+      <ul class="sidenav-nav">
+        <li class="sidenav-nav-item">
+          <a class="sidenav-nav-link">
+            <i class="sidenav-link-icon">
+              <mat-icon>dashboard</mat-icon>
+            </i>
+            <span class="sidenav-link-text" *ngIf="isExpanded">Dashboard</span>
+          </a>
+        </li>
+      </ul>
+    </mat-nav-list>
+  </mat-drawer>
+  <div class="row">
+    <app-header></app-header>
+    <app-alertsidebar></app-alertsidebar>
+
+  </div>
+</mat-drawer-container>

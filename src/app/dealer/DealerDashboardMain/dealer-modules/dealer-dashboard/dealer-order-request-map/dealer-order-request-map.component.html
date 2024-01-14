@@ -1,0 +1,26 @@
+<ng-container>
+  <google-map height="20em" width="auto" [center]="center" [zoom]="zoom">
+    <map-marker [options]="markerOptions"></map-marker>
+    <map-marker #mapmarker="mapMarker" *ngFor="let m of markers; let i = index" [options]="m"
+      (mapMouseover)="openInfo(mapmarker, i)"></map-marker>
+    <map-circle [center]="circleCenter" [radius]="radius" class="circle">
+    </map-circle>
+    <map-info-window>
+      <span class="p-0 m-0">{{ name }} {{ count }}</span>
+      <p class="p-0 m-0">{{ city }} {{ distance }}</p>
+    </map-info-window>
+    <map-circle [center]="circleCenter" [radius]="radius" class="circle">
+    </map-circle>
+    <map-info-window>{{ markerOptions }}</map-info-window>
+  </google-map>
+
+  <mat-card-footer>
+    <div class="d-flex flex-row bd-highlight ">
+      <div class="p-1"> <span style="color: green;">&#11044;</span> Order</div>
+      <div class="p-1"> <span style="color: #FF6F00;">&#11044;</span> Return</div>
+      <div class="p-1"> <span style="color: #21D59B;">&#11044;</span> Fulfilled</div>
+    </div>
+
+  </mat-card-footer>
+
+</ng-container>

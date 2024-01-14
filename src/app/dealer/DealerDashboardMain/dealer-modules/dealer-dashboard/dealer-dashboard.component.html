@@ -1,0 +1,235 @@
+<div class="container-fluid">
+  <div class="row dashboard-header">
+    <div class="col-xxl-6 col-lg-6 col-md-6 col-sm-12 col-12 left-data-card">
+      <div class="row">
+        <div class="col-lg-8 col-md-8 col-smfa-rotate-180 col-8">
+          <div id="title" class="title mt-2">Dashboard</div>
+        </div>
+
+        <div class="col-lg-4 col-md-4 col-sm-8 col-8 mt-3">
+          <select class="form-select time-frame" aria-label="Default select" appearance="legacy" matNativeControl
+            [(ngModel)]="timeFrameOption" (ngModelChange)="getDataforSelectedTime(timeFrameOption)">
+            <option selected value="0.25">Last week</option>
+            <option value="1">Last Month</option>
+            <option value="3">Last 3 months</option>
+            <option value="6">Last 6 months</option>
+            <option value="12">Last Year</option>
+          </select>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-xxl-6 col-lg-6 col-md-6 col-sm-12 col-12 left-data-card">
+      <div class="row">
+        <div class="col-sm-4 col-6">
+          <mat-card class="card top-cards border-0" id="total-procedure-card">
+            <ng-container>
+              <mat-card-header>
+                <mat-card-title>Total</mat-card-title>
+                <mat-card-title>Procedures</mat-card-title>
+              </mat-card-header>
+
+              <mat-card-content>
+                <div class="value">{{ totalProcedures }}</div>
+                <ng-container *ngIf="changeTotalProcedures > 0; else elseTemplate">
+                  <div class="change-value" style="color: #21d59b">
+                    +{{ changeTotalProcedures | number : ".2-2" }}%
+                    <img src="./../../../../../assets/img/UpGreenArrow.svg" alt="" srcset="" class="change-icon" />
+                  </div>
+                </ng-container>
+
+                <ng-template #elseTemplate>
+                  <div class="change-value" style="color: #ff3131">
+                    {{ changeTotalProcedures | number : ".2-2" }}%
+                    <img src="./../../../../../assets/img/UpRedArrow.svg" alt="" srcset=""
+                      class="change-icon change-icon-rev" />
+                  </div>
+                </ng-template>
+              </mat-card-content>
+              <mat-card-footer>Since Last {{ timeFrameString }}</mat-card-footer>
+            </ng-container>
+          </mat-card>
+        </div>
+        <div class="col-sm-4 col-6">
+          <ng-container>
+            <mat-card class="card top-cards border-0" id="total-orders-card">
+              <ng-container>
+                <mat-card-header>
+                  <mat-card-title>Total</mat-card-title>
+                  <mat-card-title>Orders</mat-card-title>
+                </mat-card-header>
+
+                <mat-card-content>
+                  <div class="value">{{ totalOrders }}</div>
+
+                  <ng-container *ngIf="changeTotalOrders > 0; else elseTemplate">
+                    <div class="change-value" style="color: #21d59b">
+                      +{{ changeTotalOrders | number : ".2-2" }} %
+                      <img src="./../../../../../assets/img/UpGreenArrow.svg" alt="" srcset="" class="change-icon" />
+                    </div>
+                  </ng-container>
+
+                  <ng-template #elseTemplate>
+                    <div class="change-value" style="color: #ff3131">
+                      {{ changeTotalOrders | number : ".2-2" }} %
+                      <img src="./../../../../../assets/img/UpRedArrow.svg" alt="" srcset=""
+                        class="change-icon-rev change-icon" />
+                    </div>
+                  </ng-template>
+                </mat-card-content>
+                <mat-card-footer>Since Last {{ timeFrameString }}
+                </mat-card-footer>
+              </ng-container>
+            </mat-card>
+          </ng-container>
+        </div>
+        <div class="col-sm-4 col-12">
+          <ng-container>
+            <mat-card class="card top-cards border-0" id="return-pending-card">
+              <ng-container>
+                <mat-card-header>
+                  <mat-card-title>Return</mat-card-title>
+                  <mat-card-title>Pending</mat-card-title>
+                </mat-card-header>
+
+                <mat-card-content>
+                  <div class="value">{{ returnPending }}</div>
+                </mat-card-content>
+                <mat-card-footer>Since Last {{ timeFrameString }}</mat-card-footer>
+              </ng-container>
+            </mat-card>
+          </ng-container>
+        </div>
+        <div class="col-12 mb-4">
+          <mat-card class="card card-progress big-card">
+            <mat-card-header>
+              <mat-card-title>Top Hospital in Orders</mat-card-title>
+            </mat-card-header>
+
+            <mat-card-content>
+              <div class="d-flex justify-content-between" *ngFor="let i of topHospitals.slice(0, 4)">
+                <div class="top-hospital">{{ i.name }}</div>
+                <mat-progress-bar mode="determinate" value="{{ getProgressbar(i.value, i.total) }}"></mat-progress-bar>
+                <div class="top-hospital-value">{{ i.value }}</div>
+              </div>
+            </mat-card-content>
+          </mat-card>
+        </div>
+      </div>
+    </div>
+
+    <div class="col mb-sm-3 mb-3 mb-md-0">
+      <mat-card class="card card-map big-card flex-box">
+        <mat-card-title>Order Request Map
+          <span style="float: right">
+            <p mat-button class="more-options more-options-map" [matMenuTriggerFor]="menuRef">
+              <mat-icon class="mat-18">more_horiz</mat-icon>
+            </p>
+
+            <mat-menu #menuRef="matMenu">
+              <button mat-menu-item>Save as PDF</button>
+              <button mat-menu-item>Save as PNG</button>
+              <button mat-menu-item>Save as Excel</button>
+            </mat-menu>
+          </span>
+        </mat-card-title>
+
+        <mat-card-content>
+          <app-dealer-order-request-map></app-dealer-order-request-map>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+  <div class="row p-0">
+    <div class="col-lg-7 col-md-7 col-sm-7 col-12 mb-sm-5 pe-2" style="height: fit-content; width: 63%">
+      <mat-card class="card card-table">
+        <h3 class="head" style="text-align: left">
+          Consumables
+          <span style="float: right; margin-top: -0.375em">
+            <div class="d-flex search_bar">
+              <div class="icon-input">
+                <input matInput (keyup)="applyFilter($event)" class="icon-input__text-field" type="text" />
+
+                <img src="./../../../../assets/img/common/search.svg" class="icon-input__icon material-icons" />
+              </div>
+              <img src="./../../../../../assets/img/service/filter (1)@2x.png" width="1em" height="1em"
+                class="filter-img" />
+              <img src="./../../../../../assets/img/3dots.svg" alt="100x300" class="table-dots" />
+            </div>
+          </span>
+        </h3>
+
+        <!-- <app-consumable-table></app-consumable-table> -->
+
+         <table mat-table [dataSource]="dataSource" matSort>
+          <ng-container matColumnDef="devicename">
+            <th mat-header-cell *matHeaderCellDef>Consumables</th>
+            <td mat-cell *matCellDef="let tools">
+              {{ tools.devicename }}
+            </td>
+          </ng-container>
+          <ng-container matColumnDef="date">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>
+              As on Date
+            </th>
+            <td
+              mat-cell
+              *matCellDef="let tools"
+              class="table-margin table-data"
+            >
+              {{ tools.date }}
+            </td>
+          </ng-container>
+
+          <ng-container matColumnDef="count">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Count</th>
+            <td mat-cell *matCellDef="let tools" class="">
+              {{ tools.count }}
+            </td>
+          </ng-container>
+
+          <ng-container matColumnDef="action">
+            <th mat-header-cell *matHeaderCellDef class="" mat-sort-header>
+              Action Cycyle
+            </th>
+            <td mat-cell *matCellDef="let tools" class="">
+              <button class="btn btn-order btn-warning" mat-button>
+                {{ tools.action }}
+              </button>
+            </td>
+          </ng-container>
+
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+          <tr class="mat-row" *matNoDataRow>
+            No data found
+           <!-- <td class="mat-cell" colspan="12">No data matching the filter {{$event}}</td> -->
+          </tr>
+        </table>
+      </mat-card>
+    </div>
+    <div class="col-lg-4 col-md-4 col-sm-4 col-12 mt-4 mt-md-0 mt-sm-0 mt-lg-0 mt-xxl-0 mt-xl-0 ps-2 ms-1"
+      style="width: 36%">
+      <mat-card class="card card-pie-chart mb-4">
+        <mat-card-header>
+          <mat-card-title>Trending Demo Request
+            <span style="float: right">
+              <button mat-button class="more-options" [matMenuTriggerFor]="menuRef">
+                <mat-icon class="mat-18">more_horiz</mat-icon>
+              </button>
+
+              <mat-menu #menuRef="matMenu">
+                <button mat-menu-item>Save as PDF</button>
+                <button mat-menu-item>Save as PNG</button>
+                <button mat-menu-item>Save as Excel</button>
+              </mat-menu>
+            </span>
+          </mat-card-title>
+        </mat-card-header>
+        <app-dealer-dashboard-chart></app-dealer-dashboard-chart>
+      </mat-card>
+    </div>
+  </div>
+</div>

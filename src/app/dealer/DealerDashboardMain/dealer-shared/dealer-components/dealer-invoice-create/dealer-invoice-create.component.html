@@ -1,0 +1,189 @@
+<!-- <div class="d-flex"> -->
+<div class="invoice-scroll m-0 p-0">
+  <mat-drawer-container class="sidebar-container mat-typography">
+
+
+    <div class="container-fluid m-0 p-0">
+      <div class="row main-card m-0 p-0">
+        <div class="col-md-4 col-lg-4 col-sm-11 col-12 m-0 p-0 " >
+          <mat-card class="card customerinvoicecard">
+            <ng-container>
+              <div>
+                <button class="btn-click" onclick="location.href='dealer/request/dashboard'">
+                  <i class="fa fa-angle-left" style="color: white; font-size: 20px" aria-hidden="true"></i>
+                </button>
+
+                <span class="formTitle">Create Invoice</span>
+              </div>
+              <div class="invoice-form mt-4 flex">
+                     <form [formGroup]="invoiceForm" (ngSubmit)="createInvoice()" style="margin-left: 3%; margin-top: 8%">
+                  <div class="form-group">
+                    <label class="formLabel">Customer</label>
+
+                    <br />
+                    <br />
+
+                    <input type="text" formControlName="customer"  class="form-control customer" placeholder="Global hospital"
+                      id="formInputBox" />
+
+                  </div>
+                  <br />
+                  <br />
+
+                  <div class="form-group">
+                    <label class="formLabel">Ticket No</label>
+                    <br />
+                    <br />
+
+
+                    <input class="form-control tickenNo "  id="formInputBox" type="text" value="#12344"
+                      aria-label="Disabled input example" disabled readonly />
+                  </div>
+
+                  <br />
+                  <br />
+
+                  <div class="form-group">
+                    <label class="formLabel">Discount</label>
+
+                    <br />
+                    <br />
+                    <input type="text" id="formInputBox"  formControlName="discount" class="form-control discount"
+                      placeholder=".5%" />
+                  </div>
+                  <br />
+                  <br />
+
+                  <div class="form-group">
+                    <button type="submit" (click)=createInvoice() class="btn btn-warning" id="invoiceButton">
+                      Create a invoice
+                    </button>
+
+                  </div>
+                </form>
+              </div>
+            </ng-container>
+          </mat-card>
+        </div>
+
+        <div class="col-md-8 col-lg-8 col-12 mt-4 ">
+          <mat-card class="card" id="invoiceCard">
+            <div class="header">
+              <p class="InvoiceHeader">Invoice
+                <span style="float: right;">  <button type="button" class="btn btn-sm" id="downloadButton">
+                  <img src="../../../../../../assets/img/dealer/Group 2202.svg" class=downloadIcon1 />
+                  Download invoice
+                </button></span>
+              </p>
+
+            </div>
+            <div class="row">
+              <div class="col-md-6 col-lg-6 col-12">
+                <!-- <div class="col-md-4 col-lg-4 col-12"> -->
+                <mat-card class="card" id="invoiceLeftCard">
+                  <mat-card class="card" id="checkBoxCard">
+                    <div class="CheckBox">
+                      <!-- <div class="form-check"> -->
+                      <input class="form-check-input" type="checkbox" id="input1" value="" id="flexCheckDefault" />
+                      &nbsp;
+                      <label class="form-check-label" for="flexCheckDefault">
+                        Whatsapp
+                      </label>
+                      &nbsp; &nbsp;
+
+                      <input class="form-check-input" type="checkbox" id="input2" value=""
+                        id="flexCheckChecked" />&nbsp;
+                      <label class="form-check-label" for="flexCheckChecked">
+                        Mail
+                      </label>
+                    </div>
+                  </mat-card>
+
+                  <br />
+                  <span class="composeMessage">Compose new message  </span>
+
+                  <br />
+                  <br />
+                  <div>
+                    <form [formGroup]="invoiceFormGroup" >
+                      <div class="form-group">
+                        <textarea placeholder="+91 85458 32564 ,GlobalHospital@gmail.com" id="composeMsgInput" ></textarea>
+                      </div>
+                      <br />
+                      <div class="form-group">
+                        <!-- <input type="text" class=".col-lg-*" value=""
+                          id="composeMsgInput" class="col-xs-4" /> -->
+                          <textarea id="composeMsgInput" >{{ invoiceDetails}}</textarea>
+
+
+                      </div>
+                    </form>
+                  </div>
+                  <br />
+
+                  <mat-card class="card msgcard ">
+                    <mat-card-content class="msgcontent">
+                      <span>
+                        Hi[recipent name],<br />
+                        I hope you are well.Please see attached invoice number
+                        #12344 for surgery kits & tools, due on 12-11-2022.Dont
+                        hesitate to reach out if you have any questions. Payment
+                        link:<a href="url">PaymentGateway/stryker</a>
+                      </span>
+                    </mat-card-content>
+                  </mat-card>
+                  <br />
+                  <div class="attachement">
+                    <img src="assets\img\dealer\Icon.svg" alt="" />
+                    Attachment
+                    <button type="button" class="btn btn-light-lg" id="pdfDocument">
+                      <img class="pdfIcon" src="assets\img\dealer\pdf@2x.png" alt="" />
+                      &nbsp;
+                      <span class="pdfContent"> Global Hospital #12344</span>
+                      &nbsp;
+                      <img class="downloadIcon2" src="assets\img\dealer\Group 2202@2x.png" alt="" />
+
+                      <div class="pdfContent2">1.5mb</div>
+                    </button>
+                  </div>
+                </mat-card>
+              </div>
+              <!-- <div>
+        <mat-card class="card" id="middleCard">
+
+        </mat-card>
+      </div> -->
+
+              <!-- <div class="col-5"> -->
+              <div class="col-md-6 col-lg-6 col-12">
+                <mat-card class="card" id="invoiceDocCard">
+                  <!-- <img src="assets\img\dealer\Group 2201.svg" id="invoiceDoc" alt="" /> -->
+                  <embed src="assets\img\dealer\Group 2201.svg" type="application/pdf" id="invoiceDoc" style="height: 100%;" />
+                </mat-card>
+              </div>
+
+              <button type="button" class="btn btn-sm" id="discardButton">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x"
+                  viewBox="0 0 16 16">
+                  <path
+                    d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z" />
+                </svg>Discard
+              </button>
+              &nbsp;
+              <button type="button" class="btn btn-sm" id="sendButton">
+                &nbsp;
+
+                <i class="fa fa-send" style="color: white ;"></i>
+
+                <span class="send"> Send</span>
+                &nbsp;
+              </button>
+            </div>
+          </mat-card>
+        </div>
+      </div>
+    </div>
+    <!-- </div> -->
+  </mat-drawer-container>
+
+</div>

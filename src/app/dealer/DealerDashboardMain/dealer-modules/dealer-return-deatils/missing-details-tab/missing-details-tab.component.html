@@ -1,0 +1,118 @@
+<div class="col-md-10 col-lg-12 col-12 col-sm-12 col-xxl-10 mt-2">
+  <mat-card class="card missingOuterCard">
+    <div class="d-flex justify-content-between">
+      <span class="missingPageTitle"> Verified list</span>
+
+      <form>
+        <input
+          type="search"
+          id="searchBtnVerList"
+          class="form-control form-control-sm has-search"
+          placeholder="Search By Order id or Serial Id"
+
+        />
+        <img
+          src="../../../../../assets/img/dealer/search.svg"
+          alt=""
+          class="srchIconVerList"
+        />
+      </form>
+      <!-- <div class="icon-input">
+        <input class="icon-input__text-field" type="text" placeholder="Search By Order id or Serial Id">
+        <i class="icon-input__icon material-icons">search</i>
+      </div> -->
+
+    </div>
+
+    <div class="d-flex ">
+      <div class="flex-grow-1 justify-content-between">
+        <button
+          type="button"
+          class="btn btn-light verifiedCountMissingList"
+        >
+          188 items verified
+        </button>
+      </div>
+
+      <!-- <div class="d-flex justify-content-between"> -->
+        <button type="button" class="btn btn-dark requestBtn me-2">
+          Request for Return
+        </button>
+
+        <button type="button" class="btn btn-dark me-2 invoiceBtn " routerLink="/dealer/invoice">
+          invoice It
+        </button>
+        <button type="button" class="btn btn-dark writeOffBtn me-4">
+          Write Off
+        </button>
+        <img
+          src="../../../../../assets/img/dealer/svg16.svg"
+          alt=""
+          class="printerIcon2"
+        />
+
+      <!-- </div> -->
+
+
+
+
+
+    </div>
+
+    <mat-card class="missingListTopCard">
+      <div class="missingDetailsTitle">
+        <img src="assets\img\dealer\icon_arrow.svg" alt="" /> &nbsp;
+
+        <span class="powerToolTitle"
+          >Power Tool Set - PT Package #121</span
+        >
+      </div>
+
+    </mat-card>
+    <!-- <mat-card class="card verifiedListBgCard"> -->
+    <mat-card class="card mt-0 ms-0" id="verifideListSingleCardMD">
+      <ng-container *ngFor="let item of ReturnList">
+        <div>
+          <input
+            class="form-check-input returnCheckBox"
+            type="checkbox"
+            value=""
+            id="flexCheckDefault"
+            (click)="returnListVerification(item.id)"
+          />
+          <mat-card class="card mt-0 ms-1" id="verifyListSubCardMD">
+            <div class="cardText">
+              {{ item.id }}
+              <img
+                class="alertIcon"
+                src="assets\img\dealer\alert-triangle.svg"
+                style="float: right"
+              />
+            </div>
+            <div class="cardText">
+              {{ item.deviceName }}
+
+              <span style="float: right">
+                <button
+                  mat-button
+                  class="more-options"
+                  [matMenuTriggerFor]="menuRef"
+                >
+                  <mat-icon class="mat-18">more_horiz</mat-icon>
+                </button>
+
+                <mat-menu #menuRef="matMenu">
+                  <button mat-menu-item>Save as PDF</button>
+                  <button mat-menu-item>Save as PNG</button>
+                  <button mat-menu-item>Save as Excel</button>
+                </mat-menu>
+              </span>
+            </div>
+
+            <p class="deviceCodeMissingList">{{ item.deviceCode }}</p>
+          </mat-card>
+        </div>
+      </ng-container>
+    </mat-card>
+  </mat-card>
+</div>

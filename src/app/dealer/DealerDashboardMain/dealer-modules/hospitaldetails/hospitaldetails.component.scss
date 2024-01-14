@@ -1,0 +1,279 @@
+@import url("https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css");
+@import url(./../../../../@fonts/dealerfonts.scss);
+
+.card-header {
+  font-size: 16px !important;
+  font-weight: 600;
+  margin-bottom: 20px;
+  background: none;
+  border: none;
+}
+
+.more-options {
+  background-color: #ffffff;
+  padding: 0;
+  margin: 0;
+  height: 10px;
+  width: fit-content;
+  border: none;
+  position: absolute;
+  margin-left: -2.3%;
+}
+
+.card {
+  font-family: "Poppins", sans-serif;
+  border-color: #284b7508 !important;
+  background-color: #ffffff !important;
+  box-sizing: border-box;
+  margin-top: 20px;
+  margin-left: 0;
+  background: #ffffff 0% 0% no-repeat padding-box;
+  border: 1px solid #eef1f3;
+  border-radius: 4px;
+  opacity: 1;
+
+  // .customer-details {
+  //   .table {
+      
+  //     color: #7e84a3;
+  //     .generaldetails {
+  //       font-weight: 500 !important;
+  //       font-size: 14px;
+  //       color: #0d142a;
+  //     }
+  //   }
+  // }
+  .btn {
+    margin-left: 20px;
+    margin-bottom: 10px;
+  }
+  .btn-order {
+    color: white;
+    border: #e7e7e7;
+  }
+}
+.card-details-table {
+  height: 300px;
+}
+.th.mat-header-cell:first-of-type {
+  padding-left: 0px !important;
+}
+.card-progess-conatiner {
+  margin-right: 200px !important;
+}
+.table-hospital-details {
+  width: 100%;
+}
+
+
+
+.mat-column-discription {
+  width: 1000px !important;
+  text-align: left !important;
+}
+
+.mat-column-serial {
+  text-align: left !important;
+}
+
+.mat-cell {
+  width: 1000px;
+  font-weight: 500;
+}
+.icon-input {
+  // margin-bottom: 0.625em;
+  margin-right:1.9375em;
+  margin-left: 1.25em ;
+  position: relative;
+  max-width: 18.75em;
+  float: right;
+  &__text-field{
+    margin-top: -13.05em;
+    margin-left: -10.5em;
+    width: 15.5em;
+    padding: 0.3125em 1.875em 0.3125em 0.3125em;
+    border-radius: 0.25em;
+    border: 0.0625em solid #ccc;
+    height: 1.8em;
+  }
+  &__icon{
+    color: rgb(216 213 213);
+    position: absolute;
+    // margin: 1.7em 0.3125em;
+    right: 0.5rem;
+    margin-top: 0.4rem;
+    transform: translateY(-40%);
+  }
+  &__text-field:focus + &__icon{
+    color: #d4db49;
+  }
+}
+.table-dots {
+  font-size: 24px !important;
+  margin-top: -12px;
+  margin-right: 20px;
+}
+:host::ng-deep.mat-paginator-container {
+  margin-top: 4px;
+  min-height: 10px !important;
+  max-height: 28px !important;
+}
+
+.gen-table{
+  border-collapse: collapse;
+}
+
+.gen-data-header{
+  font-size: 15px;
+  padding-right:60px ;
+  padding-top: 10px;
+  color: #4A6172;
+}
+.gen-data{
+  font-size: 14px;
+  padding-top: 18px;
+}
+.table-header{
+  font-size: 16px;
+}
+.table-data{
+  font-size: 14px;
+}
+.paginator-data{
+  font-size: 13px;
+}
+
+@media(max-width: 480px) {
+
+  .icon-input {
+    margin-bottom: 10px;
+    margin-right: 0px;
+    margin-left: 20px;
+    position: relative;
+    max-width: 250px;
+    float: right;
+    border: none;
+    cursor: pointer;
+    &__text-field {
+      width: 139px;
+      margin-top: 1.5rem;
+      padding: 5px 30px 5px 5px;
+      border-radius: 4px;
+      border: 0.25px solid #ccc;
+      height: 25px;
+    }
+  
+    &__icon {
+      color: rgb(187, 182, 182);
+      position: absolute;
+  
+      margin-top: 2.2rem;
+      margin-left: 3px !important;
+      right: 1.1rem;
+      transform: translateY(-50%);
+    }
+    &__text-field:focus + &__icon {
+      color: #FFAB00;
+    }
+    &__text-field:focus-visible {
+      border: #f85e57 !important;
+      border-color: #0d142a !important;
+    }
+  }
+
+  .moreoptionsdots{
+    margin-top: -8px;
+    margin-left: 6px;
+  }
+
+  :host::ng-deep.mat-paginator-range-label {
+    font-size: 14px;
+    width: 56px;
+    margin-right: -8px;
+    margin-left: -29px;
+    margin: 0 -10px 0 9px;
+  }
+
+  :host::ng-deep.mat-paginator-range-actions {
+    display: flex;
+    margin-bottom: -9px;
+    margin-right: -27px;
+    align-items: center;
+}
+
+
+
+}
+
+
+
+.table-container{
+  box-shadow: none;
+}
+
+.mat-table .mat-row:nth-child(odd) {
+  background: rgba(246, 246, 246, 0.05)
+}
+
+.mat-cell .data-info-toggler {
+  display: none;
+}
+
+@media screen and (max-width: 735px) {
+  .mat-table {
+    border: 0;
+    margin-top: 42px;
+    vertical-align: middle
+  }
+  .mat-table caption {
+    font-size: 1em;
+  }
+
+  /*  Enable this to hide header, useful when has no sorting */
+  .mat-header-row {
+    display: none;
+  } 
+
+  .mat-table .mat-row {
+    /* border-bottom: 5px solid #ddd; */
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    min-height: 41px;
+  }
+  .mat-table .mat-cell {
+    border-bottom: 1px solid rgb(255, 255, 255);
+    flex: unset;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    font-weight: bold;
+    height: 30px;
+    padding-left: 24px;
+    padding-top: 6px;
+  }
+  .mat-row::after {
+    display: none;
+    /* min-height: unset;
+    height: 0px !important;
+    content: ""; */
+  }
+  .mat-table .mat-cell:before {
+    content: attr(data-label);
+    font-size: 0.7rem;
+    color: gray;
+    height: 0.9rem;
+  }
+  .mat-table .mat-cell:last-child {
+    border-bottom: 0;
+  }
+  .mat-cell[data-info="secondary"] {
+    display: none !important;
+    border-bottom: 1px solid #ddd;
+  }
+  .mat-cell .data-info-toggler {
+    display: inline-block;
+    position: absolute;
+    right: 10px;
+  }
+}

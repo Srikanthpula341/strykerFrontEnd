@@ -1,0 +1,94 @@
+<div class="d-flex justify-content-center alert-info-container order-container">
+  <div class="col-12">
+    <mat-card class="alert-main-card mat-elevation-z0">
+      <div>
+        <div class="d-flex justify-content-between">
+          <div class="d-flex">
+            <button class="btn-click" routerLink="/dealer/request/dashboard">
+              <i class="fa fa-angle-left" style="color: white; font-size: 20px" aria-hidden="true"></i>
+            </button>
+            <span class="alertheading"> {{dealerdata?.alertheading}} </span>
+          </div>
+          <ul class="d-flex topsection">
+            <li *ngIf="dealerdata?.alertstatus == 1">
+              <span class="newalert"> {{dealerdata?.alertstatus}} </span>
+            </li>
+            <li>
+              <span class="ticketid"> Ticket ID: {{dealerdata?.ticketid}} </span>
+            </li>
+            <li>
+              <span class="productstatus"> {{dealerdata?.type}} </span>
+            </li>
+            <li>
+              <select class="form-select select p-dropdown highpriority-dropdown" aria-label="Default select example">
+                <option>{{dealerdata?.prioritystatus}}</option>
+              </select>
+            </li>
+          </ul>
+        </div>
+        <div class="row">
+          <ul class="d-flex" style="margin-left: 36px; margin-top: 5px">
+            <div class="d-flex datetime">
+              <mat-icon class="icon-display">update</mat-icon>
+              <span class="date-time">{{ dateTime | date : "medium" }}</span>
+            </div>
+          </ul>
+        </div>
+        <div class="row">
+          <ul class="d-flex" style="margin-left: 36px">
+            <div class="d-flex doctorname">
+              <mat-icon class="icon-display">people_outline</mat-icon>
+              <span class="doctorname-list"> {{dealerdata?.doctorsname}} </span>
+            </div>
+          </ul>
+        </div>
+        <div class="row">
+          <div class="d-flex justify-content-between" style="margin-left: 36px">
+            <span class="d-flex devicename"><i class="fas fa fa-hospital " aria-hidden="true"></i>
+              <p class="hospitalname"> {{dealerdata?.hospitalname}}  </p>
+            </span>
+
+            <ul class="d-flex" style="margin-right: 29px">
+              <li>
+                <div class="statusdropdown">
+                  <mat-icon style="margin-right: -0.5rem; margin-bottom: -0.5rem;"> show_chart</mat-icon>
+                  <select [(ngModel)]="selectedStatus" class="status-dropdown">                    
+                    <option *ngFor="let stat of status" [value]="stat.value">{{stat.name}}</option>
+                  </select>
+                </div>
+                <!-- <select class="form-select select p-dropdown status-dropdown" aria-label="Default">
+                  <option selected>Ongoing</option>
+                  <option value="1">Pending</option>
+                </select> -->
+              </li>
+              <li>
+                <div class="userdropdown">
+                  <mat-icon style="margin-right: -0.5rem; margin-bottom: -0.7rem;">person_add</mat-icon>
+                  <select [(ngModel)]="selectedValue" class="user-dropdown">                    
+                    <option *ngFor="let option of options" [value]="option.value">{{option.name}}</option>
+                  </select>
+                </div>
+ 
+
+                <!-- <select class="form-select select p-dropdown user-dropdown" aria-label="Default">
+                  <option selected>Robin Xavier</option>
+                </select> -->
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </mat-card>
+    <mat-tab-group class="me-3 mb-3 ms-3" style="margin-top: -40px; margin-bottom: 10px">
+      <mat-tab label="Order Details">
+        <app-order-list [orderId]="orderId"></app-order-list>
+      </mat-tab>
+      <mat-tab label="Hospital Details">
+        <app-hospitaldetails></app-hospitaldetails>
+      </mat-tab>
+      <mat-tab label="Order Tracking" id="order-tracking">
+        <app-order-tracking [orderId]="orderId"></app-order-tracking>
+      </mat-tab>
+    </mat-tab-group>
+  </div>
+</div>

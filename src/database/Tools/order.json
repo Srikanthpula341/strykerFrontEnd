@@ -1,0 +1,34 @@
+{
+    "_id": "123456",
+    "orderType": "RentOrder",
+    "name": "Total Knee Replacement",
+    "hospital": {
+        "_id": "123456",
+        "hospitalName": "Global hospital",
+        "hospitalStaff": [
+            "Dr.James",
+            "Dr.Stephen"
+        ],
+        "priorityStatus": "Low",
+        "dateTime": {
+            "$date": {
+                "$numberLong": "1677498222792"
+            }
+        },
+        "surgeryDate": {
+            "$date": {
+                "$numberLong": "1679937222792"
+            }
+        }
+    },
+    "dateTime": {
+        "$date": {
+            "$numberLong": "1677498222792"
+        }
+    },
+    "orderToolSet": {
+        "$ref": "orderToolList",
+        "$id": "000001"
+    },
+    "_class": "com.reactive.orderms.entity.OrderRequest"
+}

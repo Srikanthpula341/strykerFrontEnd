@@ -1,0 +1,276 @@
+@import url(../../../../@fonts/dealerfonts.scss);
+
+
+
+
+.dashboard-header {
+  margin-top: 1.5em;
+  margin-bottom: 1.5em;
+}
+
+.title {
+  font-size: 1.5em;
+  font-weight: 600 !important;
+  margin-left: 0.1em;
+  letter-spacing: 0.02em;
+}
+
+
+
+.select {
+  border: none;
+}
+
+.form-select {
+  border: none !important;
+  width: 100%;
+  font-size: 0.75em;
+}
+
+.form-option {
+  border: none !important;
+  width: 100%;
+
+}
+
+.option {
+  color: #134469 !important;
+  font-size: 0.5em;
+  font-weight: 900;
+}
+
+.card {
+  box-shadow: none;
+  border: none;
+  background-color: #ffffff;
+  border-color: #e8f1ff;
+}
+
+.more-options {
+  background-color: #ffffff;
+  border: none;
+}
+
+.left-data-card {
+  @media (max-width: 767.98px) {
+    width: 100%;
+  }
+
+  @media (min-width: 768px) {
+    width: 55%;
+  }
+}
+
+.top-cards {
+  width: calc(100% + 0.25em);
+  height: 10em;
+  border-radius: 0.45rem;
+  margin-bottom: 1rem;
+
+  .mat-card-header {
+    .mat-card-title {
+      margin-left: -.70em;
+      margin-bottom: 0.5em;
+      font-size: 0.875em;
+      font-weight: 500;
+      padding: 0;
+    }
+  }
+
+  .mat-card-content {
+    .value {
+      margin-left: .30em;
+      font-size: 1.625em;
+      font-weight: 600;
+      margin-top: 0.5em;
+      margin-bottom: 0.4em;
+    }
+
+    .change-value {
+      font-size: 0.75em;
+      margin-left: 5%;
+      font-weight: 500;
+      margin-bottom: -0.5em;
+
+      .change-rev {
+        transform: rotate(45deg) !important;
+        /* Equal to rotateZ(45deg) */
+        background-color: pink;
+      }
+
+      .change-icon {
+        margin-left: 2%;
+        height: 0.75em;
+        margin-top: -0.1em;
+        //transform: rotate(180deg); /* Equal to rotateZ(45deg) */
+        //background-color: pink;
+      }
+
+      .change-icon-rev {
+        transform: rotate(180deg) !important;
+        /* Equal to rotateZ(45deg) */
+        //background-color: pink;
+      }
+    }
+  }
+
+  .mat-card-footer {
+    //margin-left: 5%;
+    color: #bdbdbd;
+    margin: 0.375em 0em 0em 0.5em !important;
+    margin-top: 0.375em;
+    font-size: 0.625em;
+    font-weight: 500;
+    text-align: left;
+  }
+}
+
+.big-card {
+  .mat-card-title {
+    margin-top: -0.25em;
+    margin-left: 0;
+    margin-bottom: 0.375em;
+    font-size: 1em;
+    font-weight: 500;
+  }
+}
+
+.card-map {
+  height: 95%;
+  margin-left: 0.125em;
+}
+
+.card-progress {
+  width: 101%;
+  height: 13em;
+
+  .mat-card-title {
+    margin: 0.5em 0 0.875em -.70em;
+  }
+
+  .top-hospital {
+    width: 10em !important;
+    margin: 0.7em 0 0 0.5em;
+    height: 1.5em;
+    font-size: 0.75em;
+    // font-weight: 500;
+  }
+
+  .mat-progress-bar {
+    height: 0.5em;
+    margin-top: 1em;
+    // border-radius: 0.125em;
+    width: 55% !important;
+    margin-right: 1.4em;
+    margin-left: 0;
+  }
+
+  ::ng-deep .mat-progress-bar-fill::after {
+    background-color: #3c94fa;
+    border-radius: 0 30em 30em 0;
+  }
+
+  ::ng-deep .mat-progress-bar-buffer {
+    background-color: #F7F7F7;
+  }
+
+  .top-hospital-value {
+    margin: 0.8em 1.25em 0 0;
+    font-size: 0.75em;
+    font-weight: 600;
+  }
+}
+
+.mat-18 {
+  font-size: 1.5em;
+}
+
+.card-table2 {
+  width: 100%;
+  height: fit-content + 2em;
+  //color: #134469 !important;
+
+  .mat-table {
+    margin-top: -20px;
+  }
+
+  .mat-header-cell {
+    color: #134469 !important;
+    min-width: fit-content + 2.5em;
+    font-weight: 800;
+    font-size: 0.82em;
+    // margin-left: 10px;
+  }
+
+  .mat-cell {
+    width: max-content !important;
+    height: 3.8em;
+    font-size: 0.75em;
+    //padding-right: 5%;
+  }
+
+  .mat-column-count {
+    text-align: center;
+  }
+}
+
+.card-pie-chart {
+  height: 87.5%;
+
+  .mat-card-title {
+    //margin-top: 5px;
+    margin-left: -0.875em;
+    margin-bottom: 0.875em;
+    font-size: 1em;
+  }
+}
+
+.icon-input {
+  margin-bottom: 0.625em;
+  margin-right: 0px;
+  margin-left: 1.25em;
+  position: relative;
+  max-width: 18.75em;
+  float: right;
+  border: none;
+  cursor: pointer;
+
+  &__text-field {
+    width: 12.5em;
+    padding: 0.25em 1.8em 0.25em 0.25em;
+    border-radius: 0.25em;
+    border: 0.02em solid #ccc;
+    height: 25px;
+  }
+
+  &__icon {
+    color: rgb(187, 182, 182);
+    position: absolute;
+    margin-top: 13px;
+    margin-left: 3px !important;
+    right: 0.1rem;
+    transform: translateY(-50%);
+  }
+
+  &__text-field:focus+&__icon {
+    color: #b0f479;
+  }
+
+  &__text-field:focus-visible {
+    border: #f85e57 !important;
+    border-color: #0d142a !important;
+  }
+}
+
+.table-dots {
+  font-size: 24px !important;
+  margin-top: -12px;
+  margin-right: 20px;
+}
+
+.filter-img {
+  margin-top: 5px;
+  margin-left: 10px;
+  margin-right: 15px;
+  opacity: 0.5;
+}

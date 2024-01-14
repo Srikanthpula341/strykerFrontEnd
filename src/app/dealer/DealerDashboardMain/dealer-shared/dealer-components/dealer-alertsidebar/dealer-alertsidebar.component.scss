@@ -1,0 +1,396 @@
+@import url("https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css");
+
+.maincontainer {
+  width: 100%;
+  height:100vh;
+}
+.sidenav {
+height: 90vh;
+border: none;
+
+
+// width: 33%;
+max-width: 392px;
+min-width:350px;
+
+}
+.content-container{
+  padding:20px;
+}
+
+.toogleSidenav {
+ width:120px;
+
+}
+.show{
+  display:block;
+}
+.hide{
+  display: none;
+}
+.mat-card-container{
+  padding:45px 20px;;
+}
+.spacer{
+  padding:1rem;
+}
+
+.toolbar{
+  background-color: white;
+}
+
+select { font-family: 'FontAwesome', Verdana }
+
+ul li{
+  list-style: none;
+}
+ul{
+  margin-bottom: 0em;
+}
+li{
+  margin-right: 1.875em;
+}
+
+
+
+.alert-icon{
+  border: none;
+  background-color: white;
+  padding: 0.25em;
+  margin-bottom: 1.9375em;
+  color: grey;
+}
+.alert-icon-dashboard{
+  border: none;
+  background-color: white;
+  padding: 0.25em;
+  margin-bottom: -0.5em;
+  color: grey;
+}
+
+.mat-drawer-container{
+  height: 90vh;
+  background-color: #F4F7FC;
+
+}
+
+
+
+:host ::ng-deep .mat-drawer-inner-container{
+
+  overflow-x: hidden !important;
+  width: 390px;
+
+  &::-webkit-scrollbar {
+    background-color: transparent;
+    width: 0.0625em;
+  }
+
+}
+.mat-drawer-inner-container{
+  scrollbar-width: none !important;
+
+}
+
+
+
+:host ::ng-deep .mat-tab-body-content{
+  overflow-x: hidden;
+}
+
+
+
+:host ::ng-deep .mat-drawer-inner-container:hover{
+
+  &::-webkit-scrollbar {
+
+    width: 0.0625em;
+
+  }
+
+  &::-webkit-scrollbar-thumb {
+
+    background-color: rgba(0,0,0,.2)
+
+  }
+
+}
+
+:host ::ng-deep .mat-sidenav-content{
+
+  overflow-x: hidden !important;
+  &::-webkit-scrollbar {
+    background-color: transparent;
+    width: 0.0625em;
+  }
+
+}
+
+.menuicon{
+  color: #134469;
+  margin-top: 0.425rem;
+}
+
+.date-time{
+  font-size: 0.99em;
+}
+.alert-header-name{
+  font-size: 0.9375em;
+    color: #134469;
+    margin-top: 0.225rem;
+}
+.search_bar{
+  margin-left: 5.3125em;
+  margin-top: -3.5em;
+}
+::placeholder{
+  color: #B0B7C3;
+}
+.icon-input {
+  margin-bottom: 0.625em;
+  margin-right:1.9375em;
+  margin-left: 1.25em ;
+  position: relative;
+  max-width: 18.75em;
+  float: right;
+  &__text-field{
+    margin-top: 7.5rem;
+    margin-left: -16.5em;
+    width: 19.5rem;
+    font-size: 0.8rem;
+    padding: 0.3125em 1.875em 0.3125em 0.3125em;
+    border-radius: 0.15em;
+    border: 0.0625em solid #ccc;
+    height: 2.5em;
+  }
+  &__icon{
+    color: rgb(216 213 213);
+    position: absolute;
+    margin: 1.7em 0.3125em;
+    right: 0.5rem;
+    font-size: 1rem;
+    margin-top: 8.4rem;
+    transform: translateY(-50%);
+  }
+  &__text-field:focus + &__icon{
+    color: #b0f479;
+  }
+}
+.search-filter-btn{
+  width: 1.6em;
+  height: 1.5875em;
+  margin-left: -1.5625em;
+  margin-right: 0.5625em;
+  margin-top: 6em;
+  background-color: #FFAB00;
+  border-radius: 0.1675em;
+  border: none;
+}
+
+.filter{
+  color: white;
+  font-size: 1.2125em;
+  margin-left: 0.2675em;
+  margin-right: 0.3125em;
+  margin-top: 0.125em;
+}
+.filter-priority-form{
+  width: 5.6875em;
+  height: 1.125em;
+  margin-top: 0.3125em;
+
+  margin-left: 2.125em;
+}
+.filter-priority-input{
+  width: 5.25em;
+  height: 1.125em;
+  margin-top: 0.625em;
+  border-radius: 0.5em;
+  padding: 0.375em;
+}
+
+.filter-priority-dropdown{
+width:6.25em;
+height: 1.125em;
+font-weight: 500;
+font-size: small;
+
+}
+:host ::ng-deep .mat-tab-labels {
+  display: flex;
+  margin-bottom: 0.1875em !important;
+}
+:host ::ng-deep .mat-tab-label .mat-tab-label-content {
+  margin-top: 0.0625em;
+}
+
+.divider{
+margin-top: -0.1875em;
+}
+
+ul{
+  padding: 0em;
+  //margin-bottom: 0px;
+  margin-top: -0.9375em;
+}
+ul li{
+  list-style: none;
+  padding: 0.375em 0em 0em 0em;
+  cursor: pointer;
+}
+
+.nav-link{
+  color: #000;
+  border: none;
+  border-bottom: 0.25em outset #B0B7C3 !important;
+  width: 5.9063em ;
+}
+.nav-link.active{
+  color: #FFC12B;
+  border-bottom: 0.25em solid #FFC12B !important;
+}
+
+.mat-button-toggle-checked{
+    background-color: white;
+    border-bottom: 0.25em solid rgb(230, 224, 69) !important;
+
+}
+
+  .filter-title{
+    margin-left: 1.75em;
+    margin-top: 0.3125em;
+    font-weight: 800;
+  }
+
+  .all-tab{
+    width: 4.6875em;
+  }
+  .replacement-tab{
+    width: 6.875em;
+  }
+
+  .priority-dropdown{
+    border: none;
+    height: 2.25em;
+    border: 0;
+    box-shadow: none;
+    font-size: small;
+    width: 5.625em;
+    margin-right: -2.9375em;
+    margin-left: 0.1875em;
+
+  }
+  .devicename{
+    margin-top: 5px;
+  }
+  .device-dropdown{
+    border: none;
+    height: 2.3125em;
+    border: 0;
+    box-shadow: none;
+    font-size: small;
+    width: 8.2em;
+    margin-left: -2.3125em;
+    margin-top: 0.375em;
+    margin-right: -0.9375em;
+
+  }
+  .days-dropdown{
+    border: none;
+    height: 2.2em;
+    border: 0;
+    box-shadow: none;
+    font-size: small;
+    width: 9.5625em;
+    margin-top: 0.3125em;
+    margin-left: -1.75em;
+
+  }
+
+  .notification-card{
+    margin-top: 0.0625em;
+  }
+
+  .highpriority-dropdown{
+    border: none;
+    height: 2.875em;
+    border: 0;
+    box-shadow: none;
+    font-size: small;
+    width: 8.25em;
+    margin-top: -0.5rem;
+    margin-right: -0.875em;
+    margin-left: -3.1875em;
+  }
+  .status-dropdown{
+    border: none;
+    height: 2.875em;
+    border: 0;
+    box-shadow: none;
+    font-size: small;
+    width: 9.9em;
+    margin-left: 1.25em;
+
+
+  }
+  .user-dropdown{
+    border: none;
+    height: 1.875em;
+    border: 0;
+    margin-right: -0.9375em;
+    box-shadow: none;
+    font-size:medium;
+    width: 4.0625em;
+
+
+  }
+
+  .ticketid{
+
+    padding-left: 0.5em;
+    height: 2.25em;
+    text-align: center;
+    font-size: 0.75em;
+    background-color: #FF8F0033;
+    border: none;
+  }
+
+  .services{
+    margin-right: 3em;
+    border-color: black;
+    color: black;
+    background-color: white;
+    height: 1.925em;
+}
+
+
+.newalert{
+  width: 2.825em;
+  height: 1.5625em;
+  background-color:#3C94FA;
+  color: white;
+  margin-bottom: 0.5em;
+  padding: 0.125em 0.1875em 0.375em 0.375em;
+  border-radius: 0.25em;
+}
+
+.alertheading{
+  font-weight: 700;
+  font-size: 0.875em;
+}
+.alertmessage{
+  font-size: 0.75em;
+}
+.datetime{
+  margin-top: 0.3125em;
+  font-size: 0.6875em;
+}
+.icon-display{
+  font-size: 1.5em;
+  margin-top: 0.1875em;
+}
+.doctorname{
+  margin-top: 0.3125em;
+  font-size: 0.6875em;
+}
+

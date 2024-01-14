@@ -1,0 +1,59 @@
+@import url(../../../../../../app/@fonts/dealerfonts.scss);
+
+
+.list-group-item {
+  border: none;
+}
+
+.btn-popup-position {
+  //margin-top: 50px;
+  text-align: center;
+  font-weight: 900;
+
+  .btn {
+    width:max-content;
+    border-color: #FFA600;
+    border-radius: 4px;
+    height:2.5rem;
+    width: 30%;
+
+  }
+  .btn-cancel {
+    //margin-left: 2.5%;
+    margin-right: 15%;
+    font-weight: 500;
+  }
+  .btn-cancel:hover{
+    background-color: #ffffff;
+    color: rgba(6, 6, 206, 0.432);
+
+  }
+  .btn-action{
+    border-color: #FFA600;
+    background-color: #FFA600;
+    color: #ffffff;
+  }.btn-action:hover{
+    border: rgb(113, 196, 113);
+    background-color: green;
+    color: #FFA600;
+
+  }
+  .btn-yes:hover {
+    background-color: green;
+    color: white;
+    border-color: #ffffff;
+  }
+}
+*{
+    color: #1A232E;;
+}
+.popup-head{
+    font-size: 1.125rem !important;
+    text-align: center;
+    font-weight: 500;
+}
+.popup-text{
+    margin: 4%;
+    font-size: 0.9rem;
+    text-align: center;
+}

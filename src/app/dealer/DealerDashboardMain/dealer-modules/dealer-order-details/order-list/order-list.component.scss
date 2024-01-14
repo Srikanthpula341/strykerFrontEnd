@@ -1,0 +1,224 @@
+@import url(../../../../../@fonts/dealerfonts.scss);
+
+.card {
+  border-color: #284b7508 !important;
+  box-sizing: border-box;
+  margin-top: 1.25em;
+  margin-left: 0;
+  border: 0.08em solid #eef1f3;
+  border-radius: 0.25em;
+}
+
+.card-orderList {
+  height: 80vh;
+
+  .btn-export {
+    background-color: #ffa600;
+    border-radius: 0.37em;
+    min-width: fit-content;
+    width: 9em;
+    height: 2.4em;
+    border-color: #ffa600;
+    color: white;
+    text-align: center;
+    font-size: 0.75em;
+  }
+  .btn-export:hover {
+    background-color: rgba(245, 159, 97, 0.89);
+    color: darkgoldenrod;
+  }
+}
+
+.hrline-checklist {
+  margin-top: -0.625em !important;
+}
+button.mat-menu-item {
+  //width: 95%;
+  height: 40px;
+  font-size: 0.9em;
+
+  //color: black;
+}
+.mat-menu{
+  height: 200px;
+  width: 90%;
+  font-size: 0.8em;
+}
+.order-checklist-head {
+  font-size: 1em;
+  font-weight: 500;
+  margin-top: 2px;
+  color: #134469;
+  margin-left: 0.25em;
+}
+.checklist-expanison-pannel {
+  width: 100%;
+  border-radius: 0;
+}
+.mat-expansion-panel-header {
+  border-color: #0d142a;
+  border-width: 0.25em;
+  height: 2.8em !important;
+  margin-left: 2%;
+  margin-right: 20%;
+}
+.mat-panel-title {
+  width: 100vh;
+  //height: 4em !important;
+}
+.form-select{
+  height: 2em;
+  font-size: 0.8em;
+  //margin-top: -0.5em;
+  .option{
+    //margin-top: -0.2em;
+  }
+
+}
+.mat-expansion-panel {
+  border: none;
+  box-shadow: none;
+  // margin-left: 2%;
+  // border: 1px solid #d1d9e0 !important;
+  border-radius: 0 0 0 0 !important;
+  border-bottom: 1px solid #d1d9e0;
+  background-color: white;
+  box-shadow: none !important;
+}
+.mat-expansion-panel-header-title .material-icons {
+
+  margin-left: -2% !important ;
+  transform: rotate(270deg) !important;
+  font-size: 1.5em;
+}
+.mat-expanded .mat-expansion-panel-header-title .material-icons {
+  transform: rotate(0deg) !important;
+  color: #3b4859;
+}
+.material-icons2 {
+  margin-top: 5px !important;
+  margin-left: -10% !important;
+}
+.mat-expansion-panel-header {
+  flex-direction: row-reverse;
+  padding-left: 1.62em;
+  font-size: 1em !important;
+ // height: 2em !important;
+}
+.mat-expansion-toggle-indicator-after {
+  height: 2em;
+}
+.hr-line {
+  margin-left: -15%;
+  margin-right: -10%;
+}
+::ng-deep .mat-expansion-panel-body {
+  overflow-y: scroll;
+  overflow-x: hidden;
+  scrollbar-width: thin;
+  padding: 0 0 0 0 !important;
+  //padding: 0px 0px 0px 0px !important;
+}
+.card-checklist-main {
+  border: 1px solid #d1d9e0 !important;
+  border-radius: 0;
+  height: 41px;
+  color: #414141;
+  background-color: #ffa600;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.card-checklist-sub {
+  border: 1px solid #d1d9e0 !important;
+  border-radius: 0;
+  margin-left: -2%;
+  margin-right: -2%;
+  height: 56px;
+  margin-bottom: -10px;
+
+  .tool-name {
+    font-size: 12px;
+    font-weight: 500;
+    color: #414141;
+
+    .tool-status {
+      color: green;
+      font-size: 12px;
+      margin-left: 5px;
+    }
+  }
+
+  .tool-serial {
+    font-size: 10px;
+    color: #616161;
+    word-spacing: 29;
+  }
+}
+
+.check-icons {
+  font-size: 50px;
+  color: #ffa600;
+  cursor: pointer;
+}
+
+.mat-table {
+  width: 100%;
+  .mat-header-cell {
+    color: #134469;
+    font-size: 0.875em !important;
+    font-weight: 500;
+    height: 2em !important;
+    width: fit-content;
+  }
+  .th.mat-header-cell {
+    height: 20em !important;
+    border: 1px solid red;
+  }
+
+  .mat-row {
+    height: 3em;
+    padding: 0;
+    margin: 0;
+  }
+  .mat-header-row{
+    height: 3.5em;
+
+   // border: 4px solid hotpink ;
+    border-top: 2px;
+    // border-left: none;
+    // border-right: none;
+  }
+  .btn-slno {
+    //background-color: #0d142a;
+    border: 1px solid #0d142a;
+    padding: 0%;
+    margin: 0;
+    width: 6em;
+  }
+  .btn-slno:hover {
+    background-color: #ffa600;
+    color: white;
+  }
+  .btn-slno:focus {
+    background-color: #0d142a;
+    border: 1px solid #0d142a;
+    padding: 4px 2px 2px 2px;
+    margin: 4px 2px 2px 2px;
+  }
+  .mat-cell {
+    color: #134469;
+    font-size: 0.8em !important;
+    font-weight: 400;
+    height: 1.5em !important;
+  }
+  td.mat-cell {
+    height: 20px !important;
+    // background-color: red;
+    //padding: 0;
+    margin: 0;
+  }
+  * {
+    margin: 0%;
+  }
+}

@@ -1,0 +1,107 @@
+{
+    "orderId": "123456",
+    "orderType": "RentOrder",
+    "name": "Total Knee Replacement",
+    "hospital": {
+        "hospitalId": "123456",
+        "hospitalName": "Global hospital",
+        "hospitalStaff": [
+            "Dr.James",
+            "Dr.Stephen"
+        ],
+        "priorityStatus": "Low",
+        "dateTime": "2023-02-27T17:13:42.792Z",
+        "surgeryDate": "2023-03-27T17:13:42.792Z"
+    },
+    "dateTime": "2023-02-27T17:13:42.792Z",
+    "orderToolSet": {
+        "hospitalId": "123456",
+        "toolsets": [
+            {
+                "toolSetId": "00001",
+                "name": "Power Tool Set",
+                "tools": [
+                    {
+                        "toolId": "123001",
+                        "ordertoolId": "123001",
+                        "itemName": "Dual Trigger Drill",
+                        "quantity": 1,
+                        "size": 1,
+                        "slno": "12346",
+                        "code": "string"
+                    },
+                    {
+                        "toolId": "123002",
+                        "ordertoolId": "123002",
+                        "itemName": "Dual Trigger Drill",
+                        "quantity": 1,
+                        "size": 1,
+                        "slno": "12347",
+                        "code": "string"
+                    },
+                    {
+                        "toolId": "123003",
+                        "ordertoolId": "123003",
+                        "itemName": "Dual Trigger Drill",
+                        "quantity": 1,
+                        "size": 1,
+                        "slno": "12348",
+                        "code": "string"
+                    },
+                    {
+                        "toolId": "123004",
+                        "ordertoolId": "123004",
+                        "itemName": "Dual Trigger Drill",
+                        "quantity": 1,
+                        "size": 1,
+                        "slno": "12349",
+                        "code": "string"
+                    }
+                ]
+            },
+            {
+                "toolSetId": "00002",
+                "name": "Speciality Attachments",
+                "tools": [
+                    {
+                        "toolId": "123011",
+                        "ordertoolId": "123011",
+                        "itemName": "1/4\" (6.4mm) Locking keyless chuck",
+                        "quantity": 1,
+                        "size": 1,
+                        "slno": "12316",
+                        "code": "string"
+                    },
+                    {
+                        "toolId": "123012",
+                        "ordertoolId": "123012",
+                        "itemName": "5/32\" (4.0mm) Locking keyless chuck",
+                        "quantity": 1,
+                        "size": 1,
+                        "slno": "12317",
+                        "code": "string"
+                    },
+                    {
+                        "toolId": "123013",
+                        "ordertoolId": "123013",
+                        "itemName": "PoweReam 1/4\" chuck with key",
+                        "quantity": 1,
+                        "size": 1,
+                        "slno": "12318",
+                        "code": "string"
+                    },
+                    {
+                        "toolId": "123014",
+                        "ordertoolId": "123014",
+                        "itemName": "PoweReam large AO",
+                        "quantity": 1,
+                        "size": 1,
+                        "slno": "12319",
+                        "code": "string"
+                    }
+                ]
+            }
+        ],
+        "orderToolSetId": "000001"
+    }
+}

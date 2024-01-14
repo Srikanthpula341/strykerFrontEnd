@@ -1,0 +1,235 @@
+//@import url(../../../../../@fonts/dealerfonts.scss);
+
+/// ////////// Return tracking
+.card {
+  border: #ffa600 !important;
+  border-color: #0d142a;
+}
+.card-return {
+  border: 0.1px solid #d1d9e0 !important;
+  border-radius: 0;
+  @media (max-width: 767.98px) {
+    height: 55vh !important;
+  }
+  @media (min-width: 768.98px) {
+    min-height: 39vh;
+    max-height: fit-content + 5vh;
+  }
+
+  margin-right: 2%;
+  height: 10px + fit-content + 30px !important;
+
+  .tool-name {
+    font-size: 0.75em;
+    font-weight: 500;
+    color: #414141;
+
+    .tool-status {
+      color: green;
+      font-size: 0.75em;
+      margin-left: 0.28em;
+    }
+  }
+
+  .tool-serial {
+    font-size: 0.625;
+    color: #616161;
+    word-spacing: 29;
+  }
+}
+
+.check-icons {
+  font-size: 3em;
+  color: #ffa600;
+  cursor: pointer;
+}
+
+.card-progress {
+  height: 420px;
+  margin-right: 20px;
+}
+.mini-return-upadtes {
+  @media (max-width: 450px) {
+    margin-left: 20px;
+    background-color: #134469 !important;
+  }
+}
+.return-table-progress {
+  margin-top: 10%;
+  margin-left: -8.2%;
+  width: 120%;
+  color: #3b4859;
+  .table-progress-height {
+    height: 60px;
+    margin-left: -12.5em;
+    a:not([href]):not([class]),
+    a:not([href]):not([class]):hover {
+      color: inherit;
+      font-size: 0.6 !important;
+      text-decoration: none;
+      margin-left: 8%;
+    }
+    .progress-level {
+      margin-left: 1.26em;
+    }
+  }
+
+  .status {
+    height: 1.25em;
+    margin-left: 14.5%;
+    font-size: 0.625em;
+    color: #818181;
+  }
+}
+
+.return-vl {
+  border-left: 1px solid #707070;
+  height: 80%;
+  margin-left: 30%;
+
+  margin-top: 20px;
+}
+.mat-18 {
+  color: #0d142a;
+  border: none;
+  border-radius: 0%;
+  opacity: 0.4;
+  font-size: 20px;
+}
+.more-options {
+  background-color: #ffffff;
+  padding: 0;
+  margin: 0;
+  height: 10px;
+  width: fit-content;
+  border: none;
+  position: absolute;
+  margin-left: -2.3%;
+}
+
+.menuRef {
+  height: 1000px;
+}
+
+button.mat-menu-item {
+  height: 40px;
+}
+.checklist-expanison-pannel {
+  //background-color: #b0f479;
+  width: 100%;
+  // margin: 1%;
+  border-radius: 0;
+}
+.mat-expansion-panel-header {
+  border-color: #0d142a;
+  border-width: 4px;
+}
+
+.mat-expansion-panel {
+  border: none;
+  box-shadow: none;
+  margin-left: 2%;
+  margin-right: 2%;
+  margin-bottom: 2%;
+  border: 1px solid #d1d9e0 !important;
+  border-radius: 0 0 0 0 !important;
+  //width: 110;
+  border-bottom: 1px;
+  background-color: white;
+  box-shadow: none !important;
+  // background-color: green;
+}
+.mat-expansion-panel-header-title .material-icons {
+  margin-left: -4% !important;
+  transform: rotate(270deg) !important;
+  font-size: 24px;
+  border-bottom: 1px soild;
+}
+.mat-expanded .mat-expansion-panel-header-title .material-icons {
+  transform: rotate(0deg) !important;
+  color: #3b4859;
+}
+.mat-expansion-panel-header {
+  flex-direction: row-reverse;
+  padding-left: 26px;
+  font-size: 16px !important;
+}
+.mat-expansion-panel-body {
+  padding: 0px;
+}
+
+.card-checklist-main {
+  border: 1px solid #d1d9e0 !important;
+  border-radius: 0;
+  height: 41px;
+  color: #414141;
+  background-color: #ffa600;
+  // margin-left: 2%; margin-right: 2%;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.card-checklist-sub {
+  border: 1px solid #d1d9e0 !important;
+  border-radius: 0;
+  margin-left: -2%;
+  margin-right: -2%;
+  height: 56px;
+  //width: 110%;
+  margin-bottom: -10px;
+
+  .tool-name {
+    font-size: 12px;
+    font-weight: 500;
+    color: #414141;
+
+    .tool-status {
+      //color: green;
+      font-size: 12px;
+      margin-left: 5px;
+    }
+  }
+
+  .tool-serial {
+    font-size: 10px;
+    color: #616161;
+    word-spacing: 29;
+  }
+}
+
+.check-icons {
+  font-size: 50px;
+  color: #ffa600;
+  cursor: pointer;
+}
+///////////////////////////////////////
+::ng-deep .mat-option:first-child .mat-pseudo-checkbox {
+  display: none !important;
+}
+::ng-deep .hide-checkbox .mat-pseudo-checkbox {
+  display: none !important;
+}
+.mat-option:last-child .mat-pseudo-checkbox {
+  display: none !important;
+}
+.mat-pseudo-checkbox {
+  display: none !important;
+}
+.card-checklist-subb {
+  border: #0d142a;
+  background-color: #ffa600;
+  height: 50px;
+}
+.mat-list-option {
+  height: fit-content;
+  margin-bottom: 3px;
+  padding: 0 0 0 0 !important;
+}
+::ng-deep .mat-list-base .mat-list-item .mat-list-item-content,
+.mat-list-base .mat-list-option .mat-list-item-content {
+  padding: 0 0 !important;
+}
+::ng-deep .mat-list-base .mat-list-item .mat-list-item-content-reverse,
+.mat-list-base .mat-list-option .mat-list-item-content-reverse {
+  padding: 0 0 !important;
+}

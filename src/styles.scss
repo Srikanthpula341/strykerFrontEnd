@@ -1,0 +1,52 @@
+/* You can add global styles to this file, and also import other style files */
+
+html,
+body {
+  height: 100%;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+body {
+  position: relative;
+  font-family: "Poppins", sans-serif;
+}
+.mat-drawer-inner-container {
+  overflow-x: hidden !important;
+}
+.mat-drawer-content {
+  overflow-x: hidden !important ;
+
+  overflow-x: hidden !important;
+  &::-webkit-scrollbar {
+    background-color: transparent;
+    width: 1em;
+    scroll-behavior: smooth;
+    scrollbar-width: 1em;
+    scrollbar-color: red;
+  }
+
+}
+.mat-card:not([class*="mat-elevation-z"]) {
+  box-shadow: 0.5px 1px 2px -1px rgba(0, 0, 0, 0.2),
+    0px 0.1px 0.1px 0px rgba(0, 0, 0, 0.14),
+    0px 0.1px 0.3px 0px rgba(0, 0, 0, 0.12);
+}
+
+.mat-ink-bar {
+  background-color: #ffc12b !important;
+}
+
+.mat-tab-label-A {
+  height: 22px !important;
+  padding: 0 18px !important;
+  min-width: 54px !important;
+}
+
+.mat-pseudo-checkbox{
+  display: none !important;
+  size: 0ch;
+}
